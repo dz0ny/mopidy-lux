@@ -1,0 +1,32 @@
+@import "_boot.css";
+@import "font-awesome";
+
+.player 
+{  
+  
+  a.control{
+    cursor: pointer;
+  }
+
+  .now {
+    margin: .9em;
+
+    h1, h2{
+      font-size: 1em;
+      line-height: 1em;  
+    }
+    span{
+      color: #aaa;
+    }
+  }
+  .cover{
+    margin: .3em;
+    img, i{
+      max-width: 56px;
+      max-height: 56px;
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+}

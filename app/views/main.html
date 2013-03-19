@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="hero-unit">
+            <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p>
+    </div>
+  </div>
+</div>
+<div class="player" ng-show="isConnected">
+  <div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="nav-collapse collapse">
+
+          <ul class="nav">
+            <li class="cover hidden-phone">          
+                <img ng-show="cover" ng-src="{{cover}}" alt="{{artist}} - {{track}}">
+                <i class="icon-circle icon-4x" ng-hide="cover" alt="{{artist}} - {{track}}"></i>
+            </li>
+            <li>
+              <a class="control" ng-click="prev()"><i class="icon-step-backward icon-2x"></i></a>
+            </li>
+            <li ng-switch on="state">
+              <a class="control" ng-click="pause()" ng-switch-when="playing"><i class="icon-pause icon-2x"></i></a>
+              <a class="control" ng-click="play()" ng-switch-default><i class="icon-play icon-2x"></i></a>
+            </li>
+            <li>
+              <a class="control" ng-click="next()"><i class="icon-step-forward icon-2x"></i></a>
+            </li> 
+            <li>
+              <div class="now" ng-show="track">
+                <h1>{{artist}}</h1>
+                <h2>{{track}} <span ng-show="album">{{album}}</span></h2>
+              </div>
+            </li> 
+          </ul>
+          <ul class="nav pull-right hidden-phone">
+            <li>
+              <a class="control" href="#"><i class="icon-reorder icon-2x"></i><span></span></a>
+            </li>
+            <li>
+              <a class="control" href="#"><i class="icon-book icon-2x"></i><span></span></a>
+            </li>
+            <li>
+              <a class="control" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
+            </li>  
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
