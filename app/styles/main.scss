@@ -1,8 +1,7 @@
 @import "_boot.css";
 @import "font-awesome";
 
-.player 
-{  
+.player{  
   
   a.control{
     cursor: pointer;
@@ -29,4 +28,9 @@
     }
   }
 
+}
+.loading i {
+  margin-left: 50%;
+  text-align: center;
+  margin-top: 10%;
 }

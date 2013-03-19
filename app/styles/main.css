@@ -1602,31 +1602,38 @@ ul.icons li [class*=" icon-"] {
   content: "\f115";
 }
 
-/* line 7, main.scss */
+/* line 6, main.scss */
 .player a.control {
   cursor: pointer;
 }
-/* line 11, main.scss */
+/* line 10, main.scss */
 .player .now {
   margin: .9em;
 }
-/* line 14, main.scss */
+/* line 13, main.scss */
 .player .now h1, .player .now h2 {
   font-size: 1em;
   line-height: 1em;
 }
-/* line 18, main.scss */
+/* line 17, main.scss */
 .player .now span {
   color: #aaa;
 }
-/* line 22, main.scss */
+/* line 21, main.scss */
 .player .cover {
   margin: .3em;
 }
-/* line 24, main.scss */
+/* line 23, main.scss */
 .player .cover img, .player .cover i {
   max-width: 56px;
   max-height: 56px;
   width: 56px;
   height: 56px;
+}
+
+/* line 32, main.scss */
+.loading i {
+  margin-left: 50%;
+  text-align: center;
+  margin-top: 10%;
 }

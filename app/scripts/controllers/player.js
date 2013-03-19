@@ -23,12 +23,18 @@ angular.module('mopidyWeb2App')
             $scope.album = false;
           }
     
-          if (data.album.images.length) {
+          if (data.album.images) {
               var image = data.album.images[0];
               $scope.cover = image;
           }else{
               $scope.cover = false;
           }
+        }else{
+          // New connection
+          $scope.album = false;
+          $scope.artist = false;
+          $scope.cover = false;
+          $scope.track = false;
         }
     }
 
@@ -51,6 +57,10 @@ angular.module('mopidyWeb2App')
         mopidy.getCurrentTrack(updateInfo);
         mopidy.getState(updateState);
         $scope.isConnected = true;
+    });
+
+    mopidy.on("state:offline", function () {
+        $scope.isConnected = false;
     });
 
     $scope.play = function () {
