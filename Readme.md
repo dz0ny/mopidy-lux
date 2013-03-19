@@ -1,6 +1,6 @@
-# Mopidy web client v2
+# Lux, the other Mopidy web client, for day and night.
 
-A reimagined remote control interface for Mopidy player.
+A shiny new remote control interface for Mopidy player.
 
 ![screen shoot](https://pbs.twimg.com/media/BFrxPayCMAIQefs.png:large "screen shoot")
 
