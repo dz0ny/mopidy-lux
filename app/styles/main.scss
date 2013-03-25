@@ -1,8 +1,22 @@
 @import "_boot.css";
+@import "_boot_resp.css";
 @import "font-awesome";
 
 .player{  
-  
+  .scrub{
+    cursor: pointer;
+    width: auto;
+    min-width: 300px;
+    display: block;
+    height: 58px;
+    padding: 1px;
+    border: 1px solid rgb(17, 17, 17);
+    background: rgb(3, 3, 3);
+    .handle{
+      height: 100%;
+      background-color: rgba(51, 181, 229, 0.23);
+    }
+  }
   a.control{
     cursor: pointer;
   }

@@ -9,7 +9,6 @@
     <title>Mopidy Lux</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
-    <link href="styles/bootstrap-responsive.css" rel="stylesheet">
   </head>
   <body ng-app="mopidyWeb2App">
     <!--[if lt IE 7]>
@@ -25,16 +24,14 @@
     <div class="container" ng-view></div>
     <script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
 
+    <script src="components/jquery/jquery.js"></script>
     <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/player.js"></script>
     <script src="scripts/services/mopidy.js"></script>
-    <script src="scripts/controllers/loading.js"></script>
     <!-- endbuild -->
 
   </body>
