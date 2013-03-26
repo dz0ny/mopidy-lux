@@ -20,23 +20,18 @@
               <a class="control" ng-click="next()"><i class="icon-step-forward icon-2x"></i></a>
             </li> 
             <li>
+              <a class="control" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
+            </li>  
+            <li>
               <div class="now" ng-show="track">
                 <h1>{{track}}</h1>
                 <h2>{{artist}} <span ng-show="album">{{album}}</span></h2>
               </div>
             </li>
-            <li class="scrub" ng-mousedown="seek($event)">
-              <div class="handle" ng-style="{width:track_position+'%' }"></div>
-            </li>
           </ul>
-          <ul class="nav pull-right hidden-phone">
-            <li>
-              <a class="control" href="#"><i class="icon-book icon-2x"></i><span></span></a>
-            </li>
-            <li>
-              <a class="control" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
-            </li>  
-          </ul>
+          <div class="scrub" ng-mousedown="seek($event)">
+            <div class="handle" ng-style="{width:track_position+'%' }"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -67,9 +67,9 @@ angular.module('mopidyWeb2App')
           clearInterval(timer);
           timer = setTimeout(function () {
             $scope.$apply(function(){
-              updateScrubState($scope.track_position_time + 1000);
+              updateScrubState($scope.track_position_time + 500);
             });
-          },1000);
+          },500);
         }else{
           clearInterval(timer);
         }
