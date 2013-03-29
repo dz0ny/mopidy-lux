@@ -26,7 +26,7 @@
     cursor: pointer;
     min-width: 140px;
     min-height:140px;
-
+    max-width: 140px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -161,6 +161,7 @@
   .tracklist .track{
     min-height: 120px;
     margin-bottom: .3em;
+    max-width: 99%;
   }
   .tracklist .track.active .info {
     h1{
@@ -198,6 +199,7 @@
   .tracklist .track{
     min-height: 88px;
     margin-bottom: .3em;
+    max-width: 99%;
   }
   .tracklist .track.active .info {
     h1{
