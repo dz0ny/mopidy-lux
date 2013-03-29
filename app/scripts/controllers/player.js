@@ -3,9 +3,28 @@
 angular.module('mopidyWeb2App')
   .controller('PlayerCtrl', function ($scope, mopidy) {
 
-    window.m = mopidy.native;
-
+    // Scrub implementation
     var timer = false;
+    var updateScrubState = function(pos){
+        
+        $scope.track_position_time = pos;
+        $scope.track_position = ($scope.track_position_time / $scope.track_length) *100;
+        updateScrubStateTimer();  
+    }
+    var updateScrubStateTimer = function(){
+        if ($scope.state == "playing") {
+          clearInterval(timer);
+          timer = setTimeout(function () {
+            $scope.$apply(function(){
+              updateScrubState($scope.track_position_time + 500);
+            });
+          },500);
+        }else{
+          clearInterval(timer);
+        }
+    }
+
+    // Track tracking
 
     var updateInfo = function(data){
 
@@ -52,52 +71,32 @@ angular.module('mopidyWeb2App')
         }
     }
 
-    var updateState = function(state){
-        $scope.state = state;
-    }
-
-    var updateScrubState = function(pos){
-        
-        $scope.track_position_time = pos;
-        $scope.track_position = ($scope.track_position_time / $scope.track_length) *100;
-        updateScrubStateTimer();  
-    }
-    var updateScrubStateTimer = function(){
-        if ($scope.state == "playing") {
-          clearInterval(timer);
-          timer = setTimeout(function () {
-            $scope.$apply(function(){
-              updateScrubState($scope.track_position_time + 500);
-            });
-          },500);
-        }else{
-          clearInterval(timer);
-        }
-    }
-
-    mopidy.on("event:trackPlaybackStarted", function (data) {
+    var updateTrackInfo =  function (data) {
         updateInfo(data.tl_track.track);
-        mopidy.getCurrentTrack(updateInfo);
-    });
-    mopidy.on("event:trackPlaybackEnded", function (data) {
-        updateInfo(data.tl_track.track);
-        mopidy.getCurrentTrack(updateInfo);
-    });
-    
+    };
+
+    mopidy.on("event:trackPlaybackStarted", updateTrackInfo);
+    mopidy.on("event:trackPlaybackPaused", updateTrackInfo);
+    mopidy.on("event:trackPlaybackEnded", updateTrackInfo);
+
     mopidy.on("event:playbackStateChanged", function (data) {
-        $scope.state = data.new_state;
-        mopidy.getCurrentTrack(updateInfo);
+      $scope.state = data.new_state;
+      updateScrubStateTimer();
+      console.log("$scope.state", $scope.state)
     });
 
     mopidy.on("state:online", function () {
+
         mopidy.getCurrentTrack(updateInfo);
-        mopidy.getState(updateState);
-        $scope.isConnected = true;
+
+        mopidy.getState(function (state) {
+          $scope.state = state;
+          updateScrubStateTimer();
+          console.log("$scope.state", $scope.state)
+        });
     });
 
-    mopidy.on("state:offline", function () {
-        $scope.isConnected = false;
-    });
+    //Controls
 
     $scope.seek = function (event) {
         if (event.button == 0) {
@@ -107,18 +106,23 @@ angular.module('mopidyWeb2App')
             event.preventDefault();
         };
     }
+
     $scope.play = function () {
         mopidy.native.playback.play();
     }
+
     $scope.stop = function () {
         mopidy.native.playback.stop();
     }
+
     $scope.pause = function () {
         mopidy.native.playback.pause();
     }
+
     $scope.next = function () {
         mopidy.native.playback.next();
     }
+
     $scope.prev = function () {
         mopidy.native.playback.previous();
     }

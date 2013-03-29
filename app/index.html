@@ -21,7 +21,65 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    <div class="container">
+
+      <div class="row" ng-show="isConnected">
+        <div ng-controller="TracklistCtrl" class="span9">
+          <div class="span2">abc</div>
+          <div class="span2">abc</div>
+          <div class="span2">abc</div>
+          <div class="span2">abc</div>
+        </div>
+        <div ng-controller="LibraryCtrl" class="span3">
+          
+        </div>
+      </div>
+
+      <div ng-controller="PlayerCtrl" class="player" ng-show="isConnected">
+        <div class="navbar navbar-fixed-bottom">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              <div class="nav-collapse collapse">
+
+                <ul class="nav">
+                  <li class="cover hidden-phone">          
+                      <img ng-show="cover" ng-src="{{cover}}" alt="{{artist}} - {{track}}">
+                      <i class="icon-circle icon-4x" ng-hide="cover" alt="{{artist}} - {{track}}"></i>
+                  </li>
+                  <li>
+                    <a class="control" ng-click="prev()"><i class="icon-step-backward icon-2x"></i></a>
+                  </li>
+                  <li ng-switch on="state">
+                    <a class="control" ng-click="pause()" ng-switch-when="playing"><i class="icon-pause icon-2x"></i></a>
+                    <a class="control" ng-click="play()" ng-switch-default><i class="icon-play icon-2x"></i></a>
+                  </li>
+                  <li>
+                    <a class="control" ng-click="next()"><i class="icon-step-forward icon-2x"></i></a>
+                  </li> 
+                  <li>
+                    <a class="control" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
+                  </li>  
+                  <li>
+                    <div class="now" ng-show="track">
+                      <h1>{{track}}</h1>
+                      <h2>{{artist}} <span ng-show="album">{{album}}</span></h2>
+                    </div>
+                  </li>
+                </ul>
+                <div class="scrub" ng-mousedown="seek($event)" ng-hide="state == 'stopped'">
+                  <div class="handle" ng-style="{width:track_position+'%' }"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading" ng-hide="isConnected">
+        <i class="icon-spinner icon-spin icon-4x"></i>
+      </div>
+
+    </div>
     <script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
 
     <script src="components/jquery/jquery.js"></script>
@@ -30,8 +88,10 @@
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/player.js"></script>
     <script src="scripts/services/mopidy.js"></script>
+    <script src="scripts/controllers/player.js"></script>
+    <script src="scripts/controllers/tracklist.js"></script>
+    <script src="scripts/controllers/library.js"></script>
     <!-- endbuild -->
 
   </body>
