@@ -418,9 +418,6 @@ a:focus {
           box-sizing: border-box;
 }
 
-.row-fluid [class*="span"]:first-child {
-  margin-left: 0;
-}
 
 .row-fluid .controls-row [class*="span"] + [class*="span"] {
   margin-left: 2.127659574468085%;

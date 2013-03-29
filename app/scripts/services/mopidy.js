@@ -35,8 +35,22 @@ angular.module('mopidyWeb2App')
             });
         });
       },
+      changeTrack: function (track) {
+        mopidy.playback.changeTrack(track).then(function(data) {
+            $rootScope.$apply(function() {
+                console.log(data);
+            });
+        });
+      },
+      getTracklistPosition: function (fn) {
+        mopidy.playback.getTracklistPosition().then(function(data) {
+            $rootScope.$apply(function() {
+                fn(data);
+            });
+        });
+      },
       getTracklist: function (fn) {
-        mopidy.tracklist.getTracks().then(function(data) {
+        mopidy.tracklist.getTlTracks().then(function(data) {
             $rootScope.$apply(function() {
                 fn(data);
             });
