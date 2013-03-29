@@ -25,12 +25,12 @@
 
       <div class="row-fluid" ng-show="isConnected">
         <div ng-controller="TracklistCtrl" class="span8 tracklist">
-          <div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.active" ng-class="{'active': track.active}">
+          <div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.active" ng-class="{'active': track.active}" ng-hover="preview">
             <img class="cover" ng-show="track.cover" ng-src="{{track.cover}}">
             <div class="info" ng-show="track.track">
               <img class="cover mini" ng-show="track.cover" ng-src="{{track.cover}}">
-              <h1>{{track.track}}</h1>
               <h2>{{track.artist}}</h2>
+              <h1>{{track.track}}</h1>
               <h2><span>{{track.album}}</span></h2>
             </div>
           </div>
@@ -98,6 +98,7 @@
     <script src="scripts/controllers/tracklist.js"></script>
     <script src="scripts/controllers/library.js"></script>
     <script src="scripts/directives/scrollto.js"></script>
+    <script src="scripts/directives/ngHover.js"></script>
     <!-- endbuild -->
 
   </body>
