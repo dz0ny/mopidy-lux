@@ -1608,8 +1608,13 @@ ul.icons li [class*=" icon-"] {
   margin-left: -1em !important;
   margin-top: 1em;
   margin-bottom: 78px;
+  position: fixed;
+  top: 0;
+  bottom: 1em;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-/* line 9, main.scss */
+/* line 14, main.scss */
 .tracklist .track {
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
@@ -1637,49 +1642,49 @@ ul.icons li [class*=" icon-"] {
   margin-bottom: 20px;
   box-shadow: 0px 0px 2px 2px rgba(51, 181, 229, 0.1);
 }
-/* line 15, main.scss */
+/* line 20, main.scss */
 .tracklist .track:hover {
   box-shadow: 0px 0px 15px 2px rgba(51, 181, 229, 0.7);
 }
-/* line 44, main.scss */
+/* line 49, main.scss */
 .tracklist .track .cover {
   width: 140px;
   height: 140px;
 }
-/* line 48, main.scss */
+/* line 53, main.scss */
 .tracklist .track .info {
   margin: .4em;
   display: none;
 }
-/* line 52, main.scss */
+/* line 57, main.scss */
 .tracklist .track .info h1, .tracklist .track .info h2 {
   font-size: 1em;
   line-height: 1em;
 }
-/* line 56, main.scss */
+/* line 61, main.scss */
 .tracklist .track .info span {
   color: #aaa;
 }
-/* line 61, main.scss */
+/* line 66, main.scss */
 .tracklist .track.active {
   box-shadow: 0px 0px 2px 2px #33b5e5;
 }
-/* line 63, main.scss */
+/* line 68, main.scss */
 .tracklist .track.active .cover {
   display: none;
 }
-/* line 66, main.scss */
+/* line 71, main.scss */
 .tracklist .track.active .info {
   display: block;
 }
-/* line 67, main.scss */
+/* line 72, main.scss */
 .tracklist .track.active .info .cover.mini {
   width: 30px;
   height: 30px;
   display: inline;
 }
 
-/* line 79, main.scss */
+/* line 84, main.scss */
 .player {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1688,7 +1693,7 @@ ul.icons li [class*=" icon-"] {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 88, main.scss */
+/* line 93, main.scss */
 .player .scrub {
   cursor: pointer;
   width: 100%;
@@ -1702,7 +1707,7 @@ ul.icons li [class*=" icon-"] {
   float: left;
   margin: 0 10px 0 0;
 }
-/* line 102, main.scss */
+/* line 107, main.scss */
 .player .scrub .handle {
   height: 100%;
   background-color: rgba(51, 181, 229, 0.2);
@@ -1712,32 +1717,32 @@ ul.icons li [class*=" icon-"] {
   -ms-transition: all .2s ease;
   transition: all .2s ease;
 }
-/* line 112, main.scss */
+/* line 117, main.scss */
 .player .handle:hover, .player .scrub:hover .handle {
   background-color: rgba(51, 181, 229, 0.8);
 }
-/* line 115, main.scss */
+/* line 120, main.scss */
 .player a.control {
   cursor: pointer;
 }
-/* line 119, main.scss */
+/* line 124, main.scss */
 .player .now {
   margin: .9em;
 }
-/* line 122, main.scss */
+/* line 127, main.scss */
 .player .now h1, .player .now h2 {
   font-size: 1em;
   line-height: 1em;
 }
-/* line 126, main.scss */
+/* line 131, main.scss */
 .player .now span {
   color: #aaa;
 }
-/* line 130, main.scss */
+/* line 135, main.scss */
 .player .cover {
   margin: .3em;
 }
-/* line 132, main.scss */
+/* line 137, main.scss */
 .player .cover img, .player .cover i {
   max-width: 56px;
   max-height: 56px;
@@ -1745,7 +1750,7 @@ ul.icons li [class*=" icon-"] {
   height: 56px;
 }
 
-/* line 141, main.scss */
+/* line 146, main.scss */
 .loading i {
   margin-left: 50%;
   text-align: center;
@@ -1754,29 +1759,34 @@ ul.icons li [class*=" icon-"] {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-  /* line 149, main.scss */
+  /* line 154, main.scss */
+  .tracklist {
+    right: 0;
+    bottom: 1.3em;
+  }
+
+  /* line 158, main.scss */
   .player .scrub {
     height: 32px;
   }
 
-  /* line 152, main.scss */
+  /* line 161, main.scss */
   .tracklist .track {
     min-height: 120px;
-    margin-left: 1em;
-    margin-bottom: .5em;
+    margin-bottom: .3em;
   }
 
-  /* line 158, main.scss */
+  /* line 166, main.scss */
   .tracklist .track.active .info h1 {
     padding: .2em;
     font-size: 1.6em;
   }
-  /* line 162, main.scss */
+  /* line 170, main.scss */
   .tracklist .track.active .info h2 {
     padding: .2em;
     font-size: 1.4em;
   }
-  /* line 166, main.scss */
+  /* line 174, main.scss */
   .tracklist .track.active .info .cover.mini {
     width: 120px;
     height: 120px;
@@ -1785,7 +1795,7 @@ ul.icons li [class*=" icon-"] {
     margin-left: -.4em;
   }
 
-  /* line 174, main.scss */
+  /* line 182, main.scss */
   .tracklist .track .cover {
     width: 120px;
     height: 120px;
@@ -1794,29 +1804,34 @@ ul.icons li [class*=" icon-"] {
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  /* line 183, main.scss */
+  /* line 191, main.scss */
+  .tracklist {
+    right: 0;
+    bottom: 3.3em;
+  }
+
+  /* line 195, main.scss */
   .player .scrub {
     height: 58px;
   }
 
-  /* line 186, main.scss */
+  /* line 198, main.scss */
   .tracklist .track {
     min-height: 88px;
-    margin-left: 1em;
-    margin-bottom: .5em;
+    margin-bottom: .3em;
   }
 
-  /* line 192, main.scss */
+  /* line 203, main.scss */
   .tracklist .track.active .info h1 {
     padding: .2em;
     font-size: 1.2em;
   }
-  /* line 196, main.scss */
+  /* line 207, main.scss */
   .tracklist .track.active .info h2 {
     padding: .2em;
     font-size: 1em;
   }
-  /* line 200, main.scss */
+  /* line 211, main.scss */
   .tracklist .track.active .info .cover.mini {
     width: 88px;
     height: 88px;
@@ -1825,20 +1840,20 @@ ul.icons li [class*=" icon-"] {
     margin-left: -.4em;
   }
 
-  /* line 208, main.scss */
+  /* line 219, main.scss */
   .tracklist .track .cover {
     width: 88px;
     height: 88px;
     float: left;
   }
 }
-/* line 215, main.scss */
+/* line 226, main.scss */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 /* Track */
-/* line 220, main.scss */
+/* line 231, main.scss */
 ::-webkit-scrollbar-track {
   background-color: #121417;
   background-image: -moz-linear-gradient(top, #060606, #070809);
@@ -1851,12 +1866,12 @@ ul.icons li [class*=" icon-"] {
 }
 
 /* Handle */
-/* line 233, main.scss */
+/* line 244, main.scss */
 ::-webkit-scrollbar-thumb {
   background: rgba(51, 181, 229, 0.8);
 }
 
-/* line 236, main.scss */
+/* line 247, main.scss */
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(51, 181, 229, 0.1);
 }

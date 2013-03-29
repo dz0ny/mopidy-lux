@@ -36,11 +36,7 @@ angular.module('mopidyWeb2App')
         });
       },
       changeTrack: function (track) {
-        mopidy.playback.changeTrack(track).then(function(data) {
-            $rootScope.$apply(function() {
-                console.log(data);
-            });
-        });
+        mopidy.playback.changeTrack(track);
       },
       getTracklistPosition: function (fn) {
         mopidy.playback.getTracklistPosition().then(function(data) {

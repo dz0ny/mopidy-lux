@@ -6,6 +6,11 @@
   margin-left: -1em!important;
   margin-top: 1em;
   margin-bottom: 78px;
+  position: fixed;
+  top: 0;
+  bottom: 1em;
+  overflow-y: auto;
+  overflow-x: hidden;
   .track{
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
@@ -146,13 +151,16 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
+  .tracklist{
+    right: 0;
+    bottom: 1.3em;
+  }
   .player .scrub{
       height: 32px;
   }
   .tracklist .track{
     min-height: 120px;
-    margin-left: 1em;
-    margin-bottom: .5em;
+    margin-bottom: .3em;
   }
   .tracklist .track.active .info {
     h1{
@@ -180,13 +188,16 @@
  
 /* Landscape phones and down */
 @media (max-width: 480px) { 
+  .tracklist{
+    right: 0;
+    bottom: 3.3em;
+  }
   .player .scrub{
       height: 58px;
   }
   .tracklist .track{
     min-height: 88px;
-    margin-left: 1em;
-    margin-bottom: .5em;
+    margin-bottom: .3em;
   }
   .tracklist .track.active .info {
     h1{
