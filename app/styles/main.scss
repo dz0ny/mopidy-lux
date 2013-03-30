@@ -11,6 +11,7 @@
   bottom: 1em;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: .2em;
   .track{
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
@@ -44,7 +45,8 @@
     background: -o-linear-gradient(top, $color_start 0%,$color_stop);
     background: -ms-linear-gradient(top, $color_start 0%,$color_stop);
     background: linear-gradient(top, $color_start 0%,$color_stop);
-    margin-bottom: 20px;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
     box-shadow: 0px 0px 2px 2px rgba(51, 181, 229, 0.1);
     .cover{
       width: 140px;
@@ -165,14 +167,15 @@
   }
   .tracklist .track{
     min-height: 120px;
-    margin-bottom: .3em;
-    max-width: 99%;
+    margin-bottom: .8em;
+    max-width: 97%;
+    margin-left: .5em;
   }
   .tracklist .track.active,.tracklist .track.preview {
     .info {
       h1{
         padding:.2em;
-        font-size: 1.6em;
+        font-size: 1.5em;
       }
       h2{
         padding:.2em;
@@ -199,15 +202,16 @@
 @media (max-width: 480px) { 
   .tracklist{
     right: 0;
-    bottom: 3.3em;
+    bottom: 2em;
   }
   .player .scrub{
-      height: 58px;
+      height: 38px;
   }
   .tracklist .track{
     min-height: 88px;
-    margin-bottom: .3em;
-    max-width: 99%;
+    margin-bottom: .8em;
+    max-width: 95%;
+    margin-left: .5em;
   }
   .tracklist .track.active, .tracklist .track.preview {
     .info {
