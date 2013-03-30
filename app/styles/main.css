@@ -1617,11 +1617,11 @@ ul.icons li [class*=" icon-"] {
 }
 /* line 15, main.scss */
 .tracklist .track {
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  transition: all .2s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  transition: all .3s ease;
   display: block;
   position: relative;
   cursor: pointer;
@@ -1720,11 +1720,11 @@ ul.icons li [class*=" icon-"] {
 .player .scrub .handle {
   height: 100%;
   background-color: rgba(51, 181, 229, 0.2);
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  transition: all .2s ease;
+  -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  -ms-transition: all 1.5s ease;
+  transition: all 1.5s ease;
 }
 /* line 124, main.scss */
 .player .handle:hover, .player .scrub:hover .handle {
@@ -1768,105 +1768,147 @@ ul.icons li [class*=" icon-"] {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-  /* line 161, main.scss */
+  /* line 170, main.scss */
   .tracklist {
     right: 0;
-    bottom: 1.3em;
+    bottom: 2.4em;
   }
 
-  /* line 165, main.scss */
+  /* line 174, main.scss */
   .player .scrub {
-    height: 32px;
+    height: 48px;
   }
 
-  /* line 168, main.scss */
+  /* line 177, main.scss */
   .tracklist .track {
-    min-height: 120px;
+    min-height: 116px;
     margin-bottom: .8em;
     max-width: 97%;
     margin-left: .5em;
   }
 
-  /* line 176, main.scss */
+  /* line 185, main.scss */
   .tracklist .track.active .info h1, .tracklist .track.preview .info h1 {
-    padding: .2em;
-    font-size: 1.5em;
+    padding: 0.4em;
+    font-size: 1.2em;
   }
-  /* line 180, main.scss */
+  /* line 189, main.scss */
   .tracklist .track.active .info h2, .tracklist .track.preview .info h2 {
-    padding: .2em;
-    font-size: 1.4em;
+    padding: 0.4em;
+    font-size: 1.1em;
   }
-  /* line 184, main.scss */
+  /* line 193, main.scss */
   .tracklist .track.active .info .cover.mini, .tracklist .track.preview .info .cover.mini {
-    width: 120px;
-    height: 120px;
+    width: 116px;
+    height: 116px;
     float: left;
     margin-right: .3em;
     margin-left: -.4em;
   }
 
-  /* line 194, main.scss */
+  /* line 202, main.scss */
   .tracklist .track .cover {
-    width: 120px;
-    height: 120px;
+    width: 116px;
+    height: 116px;
     float: left;
+    margin-right: .3em;
+  }
+
+  /* line 208, main.scss */
+  .tracklist .track .cover.mini {
+    display: none;
+  }
+
+  /* line 211, main.scss */
+  .tracklist .track .info {
+    display: block;
+  }
+  /* line 213, main.scss */
+  .tracklist .track .info h1 {
+    padding: 0.4em;
+    font-size: 1.2em;
+  }
+  /* line 217, main.scss */
+  .tracklist .track .info h2 {
+    padding: 0.4em;
+    font-size: 1.1em;
   }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  /* line 203, main.scss */
+  /* line 235, main.scss */
   .tracklist {
     right: 0;
-    bottom: 2em;
+    bottom: 1em;
   }
 
-  /* line 207, main.scss */
+  /* line 239, main.scss */
   .player .scrub {
-    height: 38px;
+    height: 32px;
   }
 
-  /* line 210, main.scss */
+  /* line 242, main.scss */
   .tracklist .track {
-    min-height: 88px;
+    min-height: 76px;
     margin-bottom: .8em;
     max-width: 95%;
     margin-left: .5em;
   }
 
-  /* line 218, main.scss */
+  /* line 250, main.scss */
   .tracklist .track.active .info h1, .tracklist .track.preview .info h1 {
-    padding: .2em;
-    font-size: 1.2em;
-  }
-  /* line 222, main.scss */
-  .tracklist .track.active .info h2, .tracklist .track.preview .info h2 {
-    padding: .2em;
+    padding: 0.2em;
     font-size: 1em;
   }
-  /* line 226, main.scss */
+  /* line 254, main.scss */
+  .tracklist .track.active .info h2, .tracklist .track.preview .info h2 {
+    padding: 0.2em;
+    font-size: 0.9em;
+  }
+  /* line 258, main.scss */
   .tracklist .track.active .info .cover.mini, .tracklist .track.preview .info .cover.mini {
-    width: 88px;
-    height: 88px;
+    width: 76px;
+    height: 76px;
     float: left;
     margin-right: .3em;
     margin-left: -.4em;
   }
 
-  /* line 235, main.scss */
+  /* line 267, main.scss */
   .tracklist .track .cover {
-    width: 88px;
-    height: 88px;
+    width: 76px;
+    height: 76px;
     float: left;
+    margin-right: .3em;
+  }
+
+  /* line 273, main.scss */
+  .tracklist .track .cover.mini {
+    display: none;
+  }
+
+  /* line 276, main.scss */
+  .tracklist .track .info {
+    display: block;
+  }
+  /* line 278, main.scss */
+  .tracklist .track .info h1 {
+    padding: 0.2em;
+    font-size: 1em;
+  }
+  /* line 282, main.scss */
+  .tracklist .track .info h2 {
+    padding: 0.2em;
+    font-size: 0.9em;
   }
 }
-/* line 242, main.scss */
+/* line 289, main.scss */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 /* Track */
-/* line 247, main.scss */
+/* line 294, main.scss */
 ::-webkit-scrollbar-track {
   background-color: #121417;
   background-image: -moz-linear-gradient(top, #060606, #070809);
@@ -1879,12 +1921,12 @@ ul.icons li [class*=" icon-"] {
 }
 
 /* Handle */
-/* line 260, main.scss */
+/* line 307, main.scss */
 ::-webkit-scrollbar-thumb {
   background: rgba(51, 181, 229, 0.8);
 }
 
-/* line 263, main.scss */
+/* line 310, main.scss */
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(51, 181, 229, 0.1);
 }

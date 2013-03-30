@@ -16,9 +16,9 @@ angular.module('mopidyWeb2App')
           clearInterval(timer);
           timer = setTimeout(function () {
             $scope.$apply(function(){
-              updateScrubState($scope.track_position_time + 500);
+                updateScrubState($scope.track_position_time + 1500);
             });
-          },500);
+          },1500);
         }else{
           clearInterval(timer);
         }
@@ -78,6 +78,7 @@ angular.module('mopidyWeb2App')
     mopidy.on("event:trackPlaybackStarted", updateTrackInfo);
     mopidy.on("event:trackPlaybackPaused", updateTrackInfo);
     mopidy.on("event:trackPlaybackEnded", updateTrackInfo);
+    mopidy.on("event:seeked", updateScrubState);
 
     mopidy.on("event:playbackStateChanged", function (data) {
       $scope.state = data.new_state;
@@ -92,7 +93,6 @@ angular.module('mopidyWeb2App')
         mopidy.getState(function (state) {
           $scope.state = state;
           updateScrubStateTimer();
-          console.log("$scope.state", $scope.state)
         });
     });
 
@@ -101,7 +101,6 @@ angular.module('mopidyWeb2App')
     $scope.seek = function (event) {
         if (event.button == 0) {
             var newpos = (event.offsetX / event.currentTarget.clientWidth) * $scope.track_length;
-            updateScrubState(newpos);
             mopidy.native.playback.seek(newpos);
             event.preventDefault();
         };

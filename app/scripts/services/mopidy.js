@@ -4,7 +4,7 @@ angular.module('mopidyWeb2App')
   .factory('mopidy', function ($rootScope) {
   var mopidy = new Mopidy();
   //Override mopidy.on to $apply the changes to angular
-  //mopidy.on(console.log.bind(console));
+  mopidy.on(console.log.bind(console));
   window.m = mopidy;
 
   // Optimized binding results in 6x performance increase

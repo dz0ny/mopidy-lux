@@ -25,7 +25,7 @@
 
       <div class="row-fluid" ng-show="isConnected">
         <div ng-controller="TracklistCtrl" class="span8 tracklist">
-          <div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.active" ng-class="{'active': track.active}" ng-hover="preview">
+          <div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.id == current_track" ng-class="{'active': track.id == current_track}" ng-hover="preview">
             <img class="cover" ng-show="track.cover" ng-src="{{track.cover}}">
             <div class="info" ng-show="track.track">
               <img class="cover mini" ng-show="track.cover" ng-src="{{track.cover}}">

@@ -13,11 +13,11 @@
   overflow-x: hidden;
   padding-top: .2em;
   .track{
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    -ms-transition: all .2s ease;
-    transition: all .2s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
     &:hover{
       box-shadow: 0px 0px 15px 2px rgba(51, 181, 229, .7);
     };
@@ -114,11 +114,11 @@
     .handle{
       height: 100%;
       background-color: rgba(51, 181, 229, 0.2);
-      -webkit-transition: all .2s ease;
-      -moz-transition: all .2s ease;
-      -o-transition: all .2s ease;
-      -ms-transition: all .2s ease;
-      transition: all .2s ease;
+      -webkit-transition: all 1.5s ease;
+      -moz-transition: all 1.5s ease;
+      -o-transition: all 1.5s ease;
+      -ms-transition: all 1.5s ease;
+      transition: all 1.5s ease;
     }
   }
   .handle:hover, .scrub:hover .handle{
@@ -158,74 +158,41 @@
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
-  .tracklist{
-    right: 0;
-    bottom: 1.3em;
-  }
-  .player .scrub{
-      height: 32px;
-  }
-  .tracklist .track{
-    min-height: 120px;
-    margin-bottom: .8em;
-    max-width: 97%;
-    margin-left: .5em;
-  }
-  .tracklist .track.active,.tracklist .track.preview {
-    .info {
-      h1{
-        padding:.2em;
-        font-size: 1.5em;
-      }
-      h2{
-        padding:.2em;
-        font-size: 1.4em;
-      }
-      .cover.mini {
-        width: 120px;
-        height: 120px;
-        float: left;
-        margin-right: .3em;
-        margin-left: -.4em;
-      }
-    }
-  }
-
-  .tracklist .track .cover {
-    width: 120px;
-    height: 120px;
-    float: left;
-  }
-}
  
-/* Landscape phones and down */
-@media (max-width: 480px) { 
+  $h1fontsize: 1.2em;
+  $h2fontsize: 1.1em;
+  $cover_art: 116px;
+  $scrub_bar: 48px;
+  $info_padding: .4em;
+  $tracklist_bottom: 2.4em;
+  $tracklist_max-width: 97%;
+
   .tracklist{
     right: 0;
-    bottom: 2em;
+    bottom: $tracklist_bottom;
   }
   .player .scrub{
-      height: 38px;
+      height: $scrub_bar;
   }
   .tracklist .track{
-    min-height: 88px;
+    min-height: $cover_art;
     margin-bottom: .8em;
-    max-width: 95%;
+    max-width: $tracklist_max-width;
     margin-left: .5em;
   }
   .tracklist .track.active, .tracklist .track.preview {
     .info {
       h1{
-        padding:.2em;
-        font-size: 1.2em;
+        padding: $info_padding;
+        font-size: $h1fontsize;
       }
       h2{
-        padding:.2em;
-        font-size: 1em;
+        padding: $info_padding;
+        font-size: $h2fontsize;
       }
       .cover.mini {
-        width: 88px;
-        height: 88px;
+        width: $cover_art;
+        height: $cover_art;
         float: left;
         margin-right: .3em;
         margin-left: -.4em;
@@ -233,9 +200,89 @@
     }
   }
   .tracklist .track .cover {
-    width: 88px;
-    height: 88px;
+    width: $cover_art;
+    height: $cover_art;
     float: left;
+    margin-right: .3em;
+  }
+  .tracklist .track .cover.mini {
+    display:none;
+  }
+  .tracklist .track .info{
+    display:block;
+    h1{
+      padding: $info_padding;
+      font-size: $h1fontsize;
+    }
+    h2{
+      padding: $info_padding;
+      font-size: $h2fontsize;
+    }
+  }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+   
+  $h1fontsize: 1em;
+  $h2fontsize: .9em;
+  $cover_art: 76px;
+  $scrub_bar: 32px;
+  $info_padding: .2em;
+  $tracklist_bottom: 1em;
+  $tracklist_max-width: 95%;
+
+  .tracklist{
+    right: 0;
+    bottom: $tracklist_bottom;
+  }
+  .player .scrub{
+      height: $scrub_bar;
+  }
+  .tracklist .track{
+    min-height: $cover_art;
+    margin-bottom: .8em;
+    max-width: $tracklist_max-width;
+    margin-left: .5em;
+  }
+  .tracklist .track.active, .tracklist .track.preview {
+    .info {
+      h1{
+        padding: $info_padding;
+        font-size: $h1fontsize;
+      }
+      h2{
+        padding: $info_padding;
+        font-size: $h2fontsize;
+      }
+      .cover.mini {
+        width: $cover_art;
+        height: $cover_art;
+        float: left;
+        margin-right: .3em;
+        margin-left: -.4em;
+      }
+    }
+  }
+  .tracklist .track .cover {
+    width: $cover_art;
+    height: $cover_art;
+    float: left;
+    margin-right: .3em;
+  }
+  .tracklist .track .cover.mini {
+    display:none;
+  }
+  .tracklist .track .info{
+    display:block;
+    h1{
+      padding: $info_padding;
+      font-size: $h1fontsize;
+    }
+    h2{
+      padding: $info_padding;
+      font-size: $h2fontsize;
+    }
   }
 }
 
