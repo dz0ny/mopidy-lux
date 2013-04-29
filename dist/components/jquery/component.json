@@ -1,12 +1,20 @@
 {
   "name": "jquery",
-  "version": "1.9.1",
-  "main": "./jquery.js",
-  "dependencies": {},
-  "gitHead": "c09c0bde45fa279780815d789d8ee53d3762ace3",
-  "_id": "jquery@1.9.1",
-  "readme": "ERROR: No README.md file found!",
-  "description": "ERROR: No README.md file found!",
+  "version": "2.0.0",
+  "description": "jQuery component",
+  "keywords": [
+    "jquery",
+    "component"
+  ],
+  "main": "jquery.js",
+  "scripts": [
+    "jquery.js"
+  ],
+  "license": "MIT",
+  "gitHead": "04d8a870773a9b3dce467db6e7662c888f9ff40b",
+  "readme": "jQuery Component\n================\n\nShim repository for the [jQuery](http://jquery.com).\n\nPackage Managers\n----------------\n\n* [Bower](http://twitter.github.com/bower/): `jquery`\n* [Component](https://github.com/component/component): `components/jquery`\n* [Composer](http://packagist.org/packages/components/jquery): `components/jquery`\n",
+  "readmeFilename": "README.md",
+  "_id": "jquery@2.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/components/jquery.git"

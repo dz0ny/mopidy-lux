@@ -1,0 +1,1 @@
+angular.module("mopidyWeb2App", []).config ->

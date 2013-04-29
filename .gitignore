@@ -1,4 +1,6 @@
-node_modules
+app/components
 .tmp
 .sass-cache
-app/components
+node_modules
+app/scripts/**/**.js
+app/scripts/**.js
