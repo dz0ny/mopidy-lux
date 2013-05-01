@@ -1,221 +1,8 @@
 @import url('//fonts.googleapis.com/css?family=Droid+Sans:400,700');
-
-// Grays
-// -------------------------
-$black:                 #000;
-$grayDarker:            #020202;
-$grayDark:              #222;
-$gray:                  #999;
-$grayLight:             #ADAFAE;
-$grayLighter:           #eee;
-$white:                 #fff;
-
-// Accent colors
-// -------------------------
-$blue:                  #33B5E5;
-$blueDark:              #0099CC;
-$green:                 #669900;
-$red:                   #CC0000;
-$yellow:                #ECBB13;
-$orange:                #FF8800;
-$pink:                  #FF4444;
-$purple:                #9933CC;
-
-// Scaffolding
-// -------------------------
-$bodyBackground:        #060606;
-$textColor:             $gray;
-
-// Links
-// -------------------------
-$linkColor:             $blue;
-$linkColorHover:        $white;
-
-// Typography
-// -------------------------
-$sansFontFamily:        'Droid Sans', sans-serif;
-$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
-
-$baseFontSize:          14px;
-$baseFontFamily:        $sansFontFamily;
-$baseLineHeight:        20px;
-$altFontFamily:         $serifFontFamily;
-
-$headingsFontFamily:    inherit; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:    normal;    // instead of browser default, bold
-$headingsColor:         $white; // empty to use BS default, $textColor
-
-// Component sizing
-// -------------------------
-// Based on 14px font-size and 20px line-height
-
-$fontSizeLarge:         $baseFontSize * 1.25; // ~18px
-$fontSizeSmall:         $baseFontSize * 0.85; // ~12px
-$fontSizeMini:          $baseFontSize * 0.75; // ~11px
-
-$paddingLarge:          11px 19px; // 44px
-$paddingSmall:          2px 10px;  // 26px
-$paddingMini:           0px 6px;   // 22px
-
-$baseBorderRadius:      4px;
-$borderRadiusLarge:     6px;
-$borderRadiusSmall:     3px;
-
-// Tables
-// -------------------------
-$tableBackground:                   transparent; // overall background-color
-$tableBackgroundAccent:             rgba(100, 100, 100, 0.1); // for striping
-$tableBackgroundHover:              $grayDark; // for hover
-$tableBorder:                       $grayDark; // table and cell border
-
-// Buttons
-// -------------------------
-$btnBackground:                     darken($gray, 20%);
-$btnBackgroundHighlight:            darken($gray, 25%);
-$btnBorder:                         rgba(0, 0, 0, 0);
-
-$btnPrimaryBackground:              $blueDark;
-$btnPrimaryBackgroundHighlight:     darken($blueDark, 10%);
-
-$btnInfoBackground:                 darken($gray, 40%);
-$btnInfoBackgroundHighlight:        darken($gray, 50%);
-
-$btnSuccessBackground:              lighten($green, 10%);
-$btnSuccessBackgroundHighlight:     $green;
-
-$btnWarningBackground:              lighten($orange, 15%);
-$btnWarningBackgroundHighlight:     $orange;
-
-$btnDangerBackground:               lighten($red, 10%);
-$btnDangerBackgroundHighlight:      $red;
-
-$btnInverseBackground:              lighten($purple, 5%);
-$btnInverseBackgroundHighlight:     $purple;
-
-
-// Forms
-// -------------------------
-$inputBackground:               #ccc;
-$inputBorder:                   #bbb;
-$inputBorderRadius:             $baseBorderRadius;
-$inputDisabledBackground:       #555;
-$formActionsBackground:         transparent;
-$inputHeight:                   $baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
-
-// Dropdowns
-// -------------------------
-$dropdownBackground:            #131517;
-$dropdownBorder:                rgba(0,0,0,.2);
-$dropdownDividerTop:            transparent;
-$dropdownDividerBottom:         #222;
-
-$dropdownLinkColor:             $textColor;
-$dropdownLinkColorHover:        $white;
-$dropdownLinkColorActive:       $white;
-
-$dropdownLinkBackgroundActive:  $linkColor;
-$dropdownLinkBackgroundHover:   $linkColor;
-
-// COMPONENT VARIABLES
-// --------------------------------------------------
-
-// Input placeholder text color
-// -------------------------
-$placeholderText:         $grayLight;
-
-
-// Hr border color
-// -------------------------
-$hrBorder:                $grayDark;
-
-
-// Horizontal forms & lists
-// -------------------------
-$horizontalComponentOffset:       180px;
-
-
-// Wells
-// -------------------------
-$wellBackground:                  #131517;
-
-$navbarHeight:                    50px;
-$navbarBackgroundHighlight:       $grayDarker;
-$navbarBackground:                $grayDarker;
-$navbarBorder:                    darken($navbarBackground, 12%);
-
-$navbarText:                      $grayLight;
-$navbarLinkColor:                 $grayLight;
-$navbarLinkColorHover:            $white;
-$navbarLinkColorActive:           $navbarLinkColorHover;
-$navbarLinkBackgroundHover:       transparent;
-$navbarLinkBackgroundActive:      $navbarBackground;
-
-$navbarBrandColor:                $navbarLinkColor;
-
-// Inverted navbar
-$navbarInverseBackground:                #252A30;
-$navbarInverseBackgroundHighlight:       #252A30;
-$navbarInverseBorder:                    transparent;
-
-$navbarInverseText:                      $grayLight;
-$navbarInverseLinkColor:                 $grayLight;
-$navbarInverseLinkColorHover:            $white;
-$navbarInverseLinkColorActive:           $navbarInverseLinkColorHover;
-$navbarInverseLinkBackgroundHover:       #242A31;
-$navbarInverseLinkBackgroundActive:      $navbarInverseLinkBackgroundHover;
-
-$navbarInverseSearchBackground:          lighten($navbarInverseBackground, 25%);
-$navbarInverseSearchBackgroundFocus:     $white;
-$navbarInverseSearchBorder:              $navbarInverseBackground;
-$navbarInverseSearchPlaceholderColor:    $white;
-
-$navbarInverseBrandColor:                $navbarInverseLinkColor;
-
-
-// Pagination
-// -------------------------
-$paginationBackground:                $bodyBackground;
-$paginationBorder:                    transparent;
-$paginationActiveBackground:          $blue;
-
-
-// Hero unit
-// -------------------------
-$heroUnitBackground:              #131517;
-$heroUnitHeadingColor:            inherit;
-$heroUnitLeadColor:               inherit;
-
-
-// Tooltips and popovers
-// -------------------------
-$tooltipColor:            #fff;
-$tooltipBackground:       $heroUnitBackground;
-$tooltipArrowWidth:       5px;
-$tooltipArrowColor:       $tooltipBackground;
-
-$popoverBackground:       $heroUnitBackground;
-$popoverArrowWidth:       10px;
-$popoverArrowColor:       $popoverBackground;
-$popoverTitleBackground:  $popoverBackground;
-
-// Special enhancement for popovers
-$popoverArrowOuterWidth:  $popoverArrowWidth + 1;
-$popoverArrowOuterColor:  rgba(0,0,0,.25);
-
+@import "settings";
 @import "bootstrap";
-@import "bootstrap-responsive";
+@import "responsive";
 @import "font-awesome";
-
-// Cyborg 2.3.1
-// Bootswatch
-// -----------------------------------------------------
-
-
-// TYPOGRAPHY
-// -----------------------------------------------------
-
-@import url('//fonts.googleapis.com/css?family=Droid+Sans:400,700');
 
 label, input, button, select, textarea,
 .navbar .search-query:-moz-placeholder,
@@ -224,43 +11,14 @@ label, input, button, select, textarea,
   color: $gray;
 }
 
-code, pre {
-  background-color: $grayLighter;
-}
-
-blockquote {
-  border-left: 5px solid $grayDark;
-
-  &.pull-right {
-    border-right: 5px solid $grayDark;
-  }
-}
-
-// SCAFFOLDING
-// -----------------------------------------------------
-
-.page-header {
-  border-bottom: 1px solid $grayDark
-}
-
 hr {
   border-bottom: none;
 }
-
-// NAVBAR
-// -----------------------------------------------------
 
 .navbar {
 
   .navbar-inner {
     border-bottom: 1px solid $grayDark;
-  }
-
-  .brand {
-    padding: 15px 20px 15px;
-    color: $grayLighter;
-    font-weight: normal;
-    text-shadow: none;
   }
 
   .nav > li > a {
@@ -466,6 +224,9 @@ hr {
     max-width: $tracklist_max-width;
     margin-left: .5em;
   }
+  .track:first-child {
+    margin-left: .5em!important;
+  }
   .tracklist .track.active, .tracklist .track.preview {
     .info {
       h1{
@@ -505,8 +266,9 @@ hr {
       font-size: $h2fontsize;
     }
   }
+
 }
- 
+
 /* Landscape phones and down */
 @media (max-width: 480px) { 
    
@@ -529,7 +291,10 @@ hr {
     min-height: $cover_art;
     margin-bottom: .8em;
     max-width: $tracklist_max-width;
-    margin-left: .5em;
+    margin-left: .5em!important;
+  }
+  .track:first-child {
+    margin-left: .5em!important;
   }
   .tracklist .track.active, .tracklist .track.preview {
     .info {
@@ -570,10 +335,10 @@ hr {
       font-size: $h2fontsize;
     }
   }
-}
-
+}w
+ 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px; height: 10px 
 }
  
 /* Track */
@@ -585,9 +350,7 @@ hr {
   background-image: -o-linear-gradient(top, #060606, #070809);
   background-image: linear-gradient(to bottom, #060606, #070809);
   background-repeat: repeat-x;
-  width: 12px;
 }
-
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -597,6 +360,3 @@ hr {
   background: rgba(51, 181, 229, 0.1); 
 }
 
-.track {
-  margin-left: 1.5em!important;
-}

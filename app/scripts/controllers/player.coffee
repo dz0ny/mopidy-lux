@@ -56,6 +56,7 @@ angular.module("mopidyWeb2App").controller "PlayerCtrl", ($scope, mopidy) ->
 
   updateTrackInfo = (data) ->
     updateInfo data.tl_track.track
+    updateScrubStateTimer()
 
   mopidy.on "event:trackPlaybackStarted", updateTrackInfo
   mopidy.on "event:trackPlaybackPaused", updateTrackInfo
@@ -63,14 +64,14 @@ angular.module("mopidyWeb2App").controller "PlayerCtrl", ($scope, mopidy) ->
   mopidy.on "event:seeked", updateScrubState
   mopidy.on "event:playbackStateChanged", (data) ->
     $scope.state = data.new_state
-    updateScrubStateTimer()
+    mopidy.getTimePosition updateScrubState
     console.log "$scope.state", $scope.state
 
   mopidy.on "state:online", ->
     mopidy.getCurrentTrack updateInfo
     mopidy.getState (state) ->
       $scope.state = state
-      updateScrubStateTimer()
+      mopidy.getTimePosition updateScrubState
 
 
   

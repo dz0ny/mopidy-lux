@@ -1,6 +1,9 @@
 "use strict"
 angular.module("mopidyWeb2App").controller "TracklistCtrl", ($scope, mopidy) ->
-  get_current_track = ->
+
+  get_current_track = (data)->
+    mopidy.getState (state) ->
+      $scope.state = state
     mopidy.getTracklistPosition (ctrack) ->
       $scope.current_track = ctrack
 
@@ -37,6 +40,9 @@ angular.module("mopidyWeb2App").controller "TracklistCtrl", ($scope, mopidy) ->
   $scope.tracks = []
   $scope.play = (track) ->
     mopidy.changeTrack track
+    if $scope.state isnt "playing"
+      mopidy.native.playback.play()
+    
 
   mopidy.on "event:tracklistChanged", update_tracklist
   mopidy.on "event:playbackStateChanged", get_current_track

@@ -147,6 +147,6 @@ module.exports = (grunt) ->
         ]
 
   grunt.renameTask "regarde", "watch"
-  grunt.registerTask "server", ["clean:server", "coffee:dist", "compass:server", "watch"]
+  grunt.registerTask "server", ["clean:server", "coffee:dist", "compass:dev", "watch"]
   grunt.registerTask "build", ["clean:dist", "coffee", "compass:dist", "useminPrepare", "imagemin", "cssmin", "htmlmin", "concat", "copy", "ngmin", "uglify", "rev", "usemin"]
   grunt.registerTask "default", ["build"]
