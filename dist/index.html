@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Mopidy Lux</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/f63d5465.main.css">
+    <link rel="stylesheet" href="styles/aa684919.main.css">
   </head>
-  <body ng-app="mopidyWeb2App">
+  <body ng-app="mopidyLuxApp">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -24,59 +24,15 @@
 
       <div class="row-fluid" ng-show="isConnected">
         <div ng-controller="TracklistCtrl" class="span8 tracklist">
-          <div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.id == current_track" ng-class="{'active': track.id == current_track}" ng-hover="preview" draggable="true">
-            <img class="cover" ng-show="track.cover" ng-src="{{track.cover}}">
-            <div class="info" ng-show="track.track">
-              <img class="cover mini" ng-show="track.cover" ng-src="{{track.cover}}">
-              <h2>{{track.artist}}</h2>
-              <h1>{{track.track}}</h1>
-              <h2><span>{{track.album}}</span></h2>
-            </div>
-          </div>
+          <div ng-include="'partials/tracklist.html'"></div>
         </div>
-        <div ng-controller="LibraryCtrl" class="span4 hidden-phone">
-          
+        <div ng-controller="LibraryCtrl" class="span4 library">
+          <div ng-include="'partials/library.html'"></div>
         </div>
       </div>
 
       <div ng-controller="PlayerCtrl" class="player" ng-show="isConnected">
-        <div class="navbar navbar-fixed-bottom">
-          <div class="navbar-inner">
-            <div class="container-fluid">
-              <div class="nav-collapse collapse">
-
-                <ul class="nav">
-                  <li class="cover hidden-phone">          
-                      <img ng-show="cover" ng-src="{{cover}}" alt="{{artist}} - {{track}}">
-                      <i class="icon-circle icon-4x" ng-hide="cover"></i>
-                  </li>
-                  <li>
-                    <a class="control" ng-click="prev()"><i class="icon-step-backward icon-2x"></i></a>
-                  </li>
-                  <li ng-switch="" on="state">
-                    <a class="control" ng-click="pause()" ng-switch-when="playing"><i class="icon-pause icon-2x"></i></a>
-                    <a class="control" ng-click="play()" ng-switch-default=""><i class="icon-play icon-2x"></i></a>
-                  </li>
-                  <li>
-                    <a class="control" ng-click="next()"><i class="icon-step-forward icon-2x"></i></a>
-                  </li> 
-                  <li>
-                    <a class="control hidden-phone" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
-                  </li>  
-                  <li class="hidden-phone">
-                    <div class="now" ng-show="track">
-                      <h1>{{track}}</h1>
-                      <h2>{{artist}} <span ng-show="album">{{album}}</span></h2>
-                    </div>
-                  </li>
-                </ul>
-                <div class="scrub" ng-mousedown="seek($event)">
-                  <div class="handle" ng-style="{width:track_position+'%' }"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div ng-include="'partials/player.html'"></div>
       </div>
 
       <div class="loading" ng-hide="isConnected">
@@ -88,8 +44,9 @@
 
     <script src="components/jquery/jquery.js"></script>
     <script src="components/angular/angular.js"></script>
+    <script src="components/underscore/underscore.js"></script>
 
-    <script src="scripts/9480634e.scripts.js"></script>
+    <script src="scripts/990117c0.scripts.js"></script>
 
   </body>
 </html>

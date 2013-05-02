@@ -240,7 +240,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #999999;
-  background-color: #060606;
+  background-color: #01090c;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/bootstrap-sass-2\.3\.1\.0\/vendor\/assets\/stylesheets\/bootstrap\/_scaffolding\.scss}line{font-family:\0000322}}
@@ -2201,7 +2201,7 @@ table {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/bootstrap-sass-2\.3\.1\.0\/vendor\/assets\/stylesheets\/bootstrap\/_tables\.scss}line{font-family:\0000353}}
 .table .table {
-  background-color: #060606;
+  background-color: #01090c;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/bootstrap-sass-2\.3\.1\.0\/vendor\/assets\/stylesheets\/bootstrap\/_tables\.scss}line{font-family:\0000365}}
@@ -4465,7 +4465,7 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
   color: #999999;
-  background-color: #060606;
+  background-color: #01090c;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -5450,7 +5450,7 @@ input[type="submit"].btn.btn-mini {
   padding: 4px 12px;
   line-height: 20px;
   text-decoration: none;
-  background-color: #060606;
+  background-color: #01090c;
   border: 1px solid transparent;
   border-left-width: 0;
 }
@@ -8074,7 +8074,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/_responsive\.scss}line{font-family:\0000326}}
   .track:first-child {
-    margin-left: 1.5em !important;
+    margin-left: 0.8em !important;
   }
 }
 /*  Font Awesome 3.0.2
@@ -9722,18 +9722,32 @@ hr {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000349}}
-.tracklist {
-  margin-left: -1em !important;
-  margin-top: 1em;
-  margin-bottom: 78px;
+.library {
   position: fixed;
   top: 0;
-  bottom: 1em;
+  bottom: 75px;
+  right: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000354}}
+.library .results {
+  position: absolute;
+  bottom: 0;
+  top: 10em;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-top: .2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000359}}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000364}}
+.tracklist {
+  padding-top: 1.7em;
+  padding-bottom: 1.7em;
+  position: absolute;
+  top: 0;
+  bottom: 75px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000372}}
 .tracklist .track {
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
@@ -9759,46 +9773,46 @@ hr {
   background: -o-linear-gradient(top, rgba(8, 37, 48, 0.32) 0%, black);
   background: -ms-linear-gradient(top, rgba(8, 37, 48, 0.32) 0%, black);
   background: linear-gradient(top, rgba(8, 37, 48, 0.32) 0%, #000000);
-  margin-bottom: 1.5em;
-  margin-left: 1.5em;
+  margin-bottom: .8em;
+  margin-left: .8em;
   box-shadow: 0px 0px 2px 2px rgba(51, 181, 229, 0.1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000378}}
 .tracklist .track:hover {
   box-shadow: 0px 0px 15px 2px rgba(51, 181, 229, 0.7);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003108}}
 .tracklist .track .cover {
   width: 140px;
   height: 140px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003112}}
 .tracklist .track .info {
   margin: .4em;
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003116}}
 .tracklist .track .info h1, .tracklist .track .info h2 {
   font-size: 1em;
   line-height: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003120}}
 .tracklist .track .info span {
   color: #aaa;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003125}}
 .tracklist .track.active, .tracklist .track.preview {
   box-shadow: 0px 0px 3px 2px #33b5e5;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003127}}
 .tracklist .track.active .cover, .tracklist .track.preview .cover {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003130}}
 .tracklist .track.active .info, .tracklist .track.preview .info {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003131}}
 .tracklist .track.active .info .cover.mini, .tracklist .track.preview .info .cover.mini {
   width: 15px;
   height: 15px;
@@ -9806,12 +9820,12 @@ hr {
   float: left;
   margin-right: .3em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003141}}
 .tracklist .track.preview {
   box-shadow: 0px 0px 4px 1px #33b5e5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003135}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003148}}
 .player {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -9820,7 +9834,7 @@ hr {
   -ms-user-select: none;
   user-select: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003144}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003157}}
 .player .scrub {
   cursor: pointer;
   width: 100%;
@@ -9834,7 +9848,7 @@ hr {
   float: left;
   margin: 0 10px 0 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003158}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003171}}
 .player .scrub .handle {
   height: 100%;
   background-color: rgba(51, 181, 229, 0.2);
@@ -9844,32 +9858,32 @@ hr {
   -ms-transition: all 1.5s ease;
   transition: all 1.5s ease;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003181}}
 .player .handle:hover, .player .scrub:hover .handle {
   background-color: rgba(51, 181, 229, 0.8);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003171}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003184}}
 .player a.control {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003175}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003188}}
 .player .now {
   margin: .9em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003178}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003191}}
 .player .now h1, .player .now h2 {
   font-size: 1em;
   line-height: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003182}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003195}}
 .player .now span {
   color: #aaa;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003186}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003199}}
 .player .cover {
   margin: .3em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003201}}
 .player .cover img, .player .cover i {
   max-width: 56px;
   max-height: 56px;
@@ -9877,7 +9891,7 @@ hr {
   height: 56px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003210}}
 .loading i {
   margin-left: 50%;
   text-align: center;
@@ -9886,18 +9900,18 @@ hr {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003214}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003227}}
   .tracklist {
     right: 0;
     bottom: 2.4em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003218}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003231}}
   .player .scrub {
     height: 48px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003221}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003234}}
   .tracklist .track {
     min-height: 116px;
     margin-bottom: .8em;
@@ -9905,22 +9919,22 @@ hr {
     margin-left: .5em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003227}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003240}}
   .track:first-child {
     margin-left: 0.5em !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003232}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003245}}
   .tracklist .track.active .info h1, .tracklist .track.preview .info h1 {
     padding: 0.4em;
     font-size: 1.2em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003249}}
   .tracklist .track.active .info h2, .tracklist .track.preview .info h2 {
     padding: 0.4em;
     font-size: 1.1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003240}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003253}}
   .tracklist .track.active .info .cover.mini, .tracklist .track.preview .info .cover.mini {
     width: 116px;
     height: 116px;
@@ -9929,7 +9943,7 @@ hr {
     margin-left: -.4em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003249}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003262}}
   .tracklist .track .cover {
     width: 116px;
     height: 116px;
@@ -9937,21 +9951,21 @@ hr {
     margin-right: .3em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003255}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003268}}
   .tracklist .track .cover.mini {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003271}}
   .tracklist .track .info {
     display: block;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003260}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003273}}
   .tracklist .track .info h1 {
     padding: 0.4em;
     font-size: 1.2em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003264}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003277}}
   .tracklist .track .info h2 {
     padding: 0.4em;
     font-size: 1.1em;
@@ -9959,18 +9973,18 @@ hr {
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003283}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003296}}
   .tracklist {
     right: 0;
     bottom: 1em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003287}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003300}}
   .player .scrub {
     height: 32px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003290}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003303}}
   .tracklist .track {
     min-height: 76px;
     margin-bottom: .8em;
@@ -9978,22 +9992,22 @@ hr {
     margin-left: 0.5em !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003296}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003309}}
   .track:first-child {
     margin-left: 0.5em !important;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003301}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003314}}
   .tracklist .track.active .info h1, .tracklist .track.preview .info h1 {
     padding: 0.2em;
     font-size: 1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003305}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003318}}
   .tracklist .track.active .info h2, .tracklist .track.preview .info h2 {
     padding: 0.2em;
     font-size: 0.9em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003309}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003322}}
   .tracklist .track.active .info .cover.mini, .tracklist .track.preview .info .cover.mini {
     width: 76px;
     height: 76px;
@@ -10002,7 +10016,7 @@ hr {
     margin-left: -.4em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003331}}
   .tracklist .track .cover {
     width: 76px;
     height: 76px;
@@ -10010,35 +10024,34 @@ hr {
     margin-right: .3em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003337}}
   .tracklist .track .cover.mini {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003340}}
   .tracklist .track .info {
     display: block;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003342}}
   .tracklist .track .info h1 {
     padding: 0.2em;
     font-size: 1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003346}}
   .tracklist .track .info h2 {
     padding: 0.2em;
     font-size: 0.9em;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003340}}
-w
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003354}}
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 /* Track */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003360}}
 ::-webkit-scrollbar-track {
   background-color: #121417;
   background-image: -moz-linear-gradient(top, #060606, #070809);
@@ -10047,15 +10060,16 @@ w
   background-image: -o-linear-gradient(top, #060606, #070809);
   background-image: linear-gradient(to bottom, #060606, #070809);
   background-repeat: repeat-x;
+  width: 10px;
 }
 
 /* Handle */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003373}}
 ::-webkit-scrollbar-thumb {
   background: rgba(51, 181, 229, 0.8);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/janez\/mopidy-lux\/app\/styles\/main\.scss}line{font-family:\00003376}}
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(51, 181, 229, 0.1);
 }

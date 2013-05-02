@@ -1,5 +1,5 @@
 "use strict"
-angular.module("mopidyWeb2App").directive "ngHover", ->
+angular.module("mopidyLuxApp").directive "ngHover", ->
   link: (scope, element, attr) ->
     $(element).hover (->
       $(this).addClass attr.ngHover

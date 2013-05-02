@@ -1,5 +1,5 @@
 "use strict"
-angular.module("mopidyWeb2App").controller "PlayerCtrl", ($scope, mopidy) ->
+angular.module("mopidyLuxApp").controller "PlayerCtrl", ($scope, mopidy) ->
   
   # Scrub implementation
   timer = false
@@ -72,8 +72,6 @@ angular.module("mopidyWeb2App").controller "PlayerCtrl", ($scope, mopidy) ->
     mopidy.getState (state) ->
       $scope.state = state
       mopidy.getTimePosition updateScrubState
-
-
   
   #Controls
   $scope.seek = (event) ->

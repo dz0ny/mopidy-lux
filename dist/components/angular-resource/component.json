@@ -1,0 +1,8 @@
+{
+  "name": "angular-resource",
+  "version": "1.0.6",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular/bower-angular-resource.git"
+  }
+}

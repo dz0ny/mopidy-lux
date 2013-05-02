@@ -1,5 +1,5 @@
 "use strict"
-angular.module("mopidyWeb2App").directive "scrollto", ->
+angular.module("mopidyLuxApp").directive "scrollto", ->
   (scope, element, attributes) ->
     if scope.$eval(attributes.scrollto)
       docViewTop = $(window).scrollTop()

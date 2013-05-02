@@ -1,0 +1,9 @@
+<div class="span2 track" ng-click="play(track.tl_track)" ng-repeat="track in tracks" scrollto="track.id == current_track" ng-class="{'active': track.id == current_track}" ng-hover="preview" draggable="true">
+  <img class="cover" ng-show="track.cover" ng-src="{{track.cover}}">
+  <div class="info" ng-show="track.track">
+    <img class="cover mini" ng-show="track.cover" ng-src="{{track.cover}}">
+    <h2>{{track.artist}}</h2>
+    <h1>{{track.track}}</h1>
+    <h2><span>{{track.album}}</span></h2>
+  </div>
+</div>

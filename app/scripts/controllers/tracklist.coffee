@@ -1,5 +1,5 @@
 "use strict"
-angular.module("mopidyWeb2App").controller "TracklistCtrl", ($scope, mopidy) ->
+angular.module("mopidyLuxApp").controller "TracklistCtrl", ($scope, mopidy) ->
 
   get_current_track = (data)->
     mopidy.getState (state) ->
