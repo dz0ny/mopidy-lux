@@ -61,7 +61,10 @@ module.exports = (grunt) ->
         importPath: "<%= yeoman.app %>/components"
         relativeAssets: true
 
-      dist: {}
+      dist: 
+        options:
+          cssDir: "<%= yeoman.app %>/styles"
+          debugInfo: false
       dev:
         options:
           cssDir: "<%= yeoman.app %>/styles"
@@ -143,7 +146,7 @@ module.exports = (grunt) ->
           dot: true
           cwd: "<%= yeoman.app %>"
           dest: "<%= yeoman.dist %>"
-          src: ["*.{ico,txt}", ".htaccess", "components/**/*", "styles/font/*", "images/{,*/}*.{gif,webp}"]
+          src: ["*.{ico,txt}", "partials/**/*", "components/es5-shim/", "styles/font/*", "images/{,*/}*.{gif,webp}"]
         ]
 
   grunt.renameTask "regarde", "watch"
