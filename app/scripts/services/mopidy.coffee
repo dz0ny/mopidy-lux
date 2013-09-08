@@ -85,6 +85,11 @@ angular.module("mopidyLuxApp").factory "mopidy", ($rootScope) ->
       $rootScope.$apply ->
         callback data
 
+  getVolume: (callback) ->
+    mopidy.playback.getVolume().then (data) ->
+      $rootScope.$apply ->
+        callback data
+
   getTimePosition: (callback) ->
     mopidy.playback.getTimePosition().then (data) ->
       $rootScope.$apply ->

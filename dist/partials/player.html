@@ -18,8 +18,12 @@
           <li>
             <a class="control" ng-click="next()"><i class="icon-step-forward icon-2x"></i></a>
           </li> 
-          <li>
-            <a class="control hidden-phone" href="#"><i class="icon-volume-up icon-2x"></i><span></span></a>
+          <li ng-switch on="volumeState">
+            <div class="scrub" ng-mousedown="setVolume($event)">
+              <div class="handle" ng-style="{width: volume + '%'}"></div>
+            </div>
+            <a class="control" ng-click="unmute()" ng-switch-when="muted"><i class="icon-volume-off icon-2x"></i></a>
+            <a class="control" ng-click="mute()" ng-switch-default><i class="icon-volume-up icon-2x"></i></a>
           </li>  
           <li class="hidden-phone">
             <div class="now" ng-show="track">

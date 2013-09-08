@@ -58,6 +58,13 @@ angular.module("mopidyLuxApp").controller "PlayerCtrl", ($scope, mopidy) ->
     updateInfo data.tl_track.track
     updateScrubStateTimer()
 
+  updateVolumeInfo = (volume) ->
+    $scope.volume = volume
+    if volume is 0
+      $scope.volumeState = "muted"
+    else
+      $scope.volumeState = "unmuted"
+
   mopidy.on "event:trackPlaybackStarted", updateTrackInfo
   mopidy.on "event:trackPlaybackPaused", updateTrackInfo
   mopidy.on "event:trackPlaybackEnded", updateTrackInfo
@@ -66,12 +73,16 @@ angular.module("mopidyLuxApp").controller "PlayerCtrl", ($scope, mopidy) ->
     $scope.state = data.new_state
     mopidy.getTimePosition updateScrubState
     console.log "$scope.state", $scope.state
+  mopidy.on "event:volumeChanged", (data) ->
+    updateVolumeInfo(data.volume)
 
   mopidy.on "state:online", ->
     mopidy.getCurrentTrack updateInfo
     mopidy.getState (state) ->
       $scope.state = state
       mopidy.getTimePosition updateScrubState
+    mopidy.getVolume (volume) ->
+      updateVolumeInfo(volume)
   
   #Controls
   $scope.seek = (event) ->
@@ -94,3 +105,16 @@ angular.module("mopidyLuxApp").controller "PlayerCtrl", ($scope, mopidy) ->
 
   $scope.prev = ->
     mopidy.native.playback.previous()
+
+  $scope.setVolume = (event) ->
+    if event.button is 0
+      newVolume = (event.offsetX / event.currentTarget.clientWidth) * 100
+      mopidy.native.playback.setVolume(newVolume)
+      event.preventDefault()
+
+  $scope.mute = ->
+    $scope.unmutedVolume = $scope.volume
+    mopidy.native.playback.setVolume(0)
+
+  $scope.unmute = ->
+    mopidy.native.playback.setVolume($scope.unmutedVolume)
