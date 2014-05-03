@@ -1,6 +1,7 @@
-app/components
-.tmp
-.sass-cache
-node_modules
-app/scripts/**/**.js
-app/scripts/**.js
+src/app/components
+src/.tmp
+src/.sass-cache
+src/node_modules
+src/app/scripts/**/**.js
+src/app/scripts/**.js
+.idea
