@@ -1,4 +1,4 @@
-src/app/components
+src/app/bower_components
 src/.tmp
 src/.sass-cache
 src/node_modules
