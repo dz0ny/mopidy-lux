@@ -1,17 +1,18 @@
 #wrapper {
-  padding-left: 250px;
+  padding-left: 90px;
   transition: all 0.4s ease 0s;
 }
 
 #sidebar-wrapper {
-  margin-left: -250px;
-  left: 250px;
-  width: 250px;
+  margin-left: -90px;
+  left: 90px;
+  width: 90px;
   position: fixed;
   height: 100%;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
+  overflow-x: hidden;
 }
 
 #page-content-wrapper {
@@ -20,10 +21,11 @@
 
 .navbar-nav {
   position: absolute;
-  width: 250px;
+  width: 90px;
   list-style: none;
   margin: 0;
   padding: 0;
+  transition: all 0.4s ease 0s;
 }
 
 .navbar-nav li {
@@ -56,33 +58,45 @@
   padding: 20px;
 }
 
+.nav>li>a{
+    text-align: center;
+    padding: 10px 10px;
+}
+.nav>li>a .fa{
+  padding: 0;
+  display: block;
+  margin: 0;
+  clear: both;
+  width: 0;
+}
+
 @media (max-width:767px) {
 
-#wrapper {
-  padding-left: 0;
-}
+  #wrapper {
+    padding-left: 0;
+  }
 
-#sidebar-wrapper {
-  left: 0;
-}
+  #sidebar-wrapper {
+    left: 0;
+  }
 
-#wrapper.active {
-  position: relative;
-  left: 250px;
-}
+  #wrapper.active {
+    position: relative;
+    left: 90px;
+  }
 
-#wrapper.active #sidebar-wrapper {
-  left: 250px;
-  width: 250px;
-  transition: all 0.4s ease 0s;
-}
+  #wrapper.active #sidebar-wrapper {
+    left: 90px;
+    width: 90px;
+    transition: all 0.4s ease 0s;
+  }
 
-#menu-toggle {
-  display: inline-block;
-}
+  #menu-toggle {
+    display: inline-block;
+  }
 
-.inset {
-  padding: 15px;
-}
+  .inset {
+    padding: 15px;
+  }
 
 }

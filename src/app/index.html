@@ -8,7 +8,7 @@
     <title>Lux</title>
     <meta name="description" content="Lux Player">
     <meta name="viewport" content="width=device-width">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/lumen/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -29,22 +29,24 @@
         <div id="sidebar-wrapper" class="navbar-default">
             <div class="navbar-header">
                <a class="navbar-brand" href="#">Mopidy</a>
+               <!-- <div bootswatch></div> -->
              </div>
             <ul class="nav navbar-nav">
-                <li data-match-route="/queue.*"><a href="#/queue">Queue</a></li>
-                <li data-match-route="/search.*"><a href="#/search">Search</a></li>
-                <li data-match-route="/discover.*"><a href="#/discover">Discover</a></li>
-                <li data-match-route="/browse.*"><a href="#/browse">Browse</a></li>
-                <li data-match-route="/settings"><a href="#/settings">Settings</a></li>
-                <li><bootswatch style="display: inline-block;"/></li>
+                <li data-match-route="/search.*"><a href="#/search"><i class="fa fa-search fa-2x"></i>Search</a></li>
+                <li data-match-route="/discover.*"><a href="#/discover"><i class="fa fa-bullseye fa-2x"></i>Discover</a></li>
+                <li data-match-route="/browse.*"><a href="#/browse"><i class="fa fa-music fa-2x"></i>Browse</a></li>
+                <li data-match-route="/queue.*"><a href="#/queue"><i class="fa fa-user fa-2x"></i>Playlist</a></li>
+                <li data-match-route="/settings"><a href="#/settings"><i class="fa fa-wrench fa-2x"></i>Settings</a></li>
+
             </ul>
+
         </div>
 
         <!-- Page content -->
         <div id="page-content-wrapper">
           <div class="content-header">
                 <h1>
-                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                    <a id="menu-toggle" href="#"><i class="fa fa-bars fa-4"></i></a>
                     Mopidy
                 </h1>
           </div>
