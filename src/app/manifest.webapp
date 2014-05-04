@@ -1,0 +1,8 @@
+{
+  "name": "Lux",
+  "description": "My elevator pitch goes here",
+  "icons": {
+    "128": "/images/yeoman.png"
+  },
+  "fullscreen": "true"
+}

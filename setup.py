@@ -26,10 +26,10 @@ setup(
     install_requires=[
         'setuptools',
         'Mopidy >= 0.18',
-        'requests >= 2.0.0',
+        'requests >= 2.0.0', 'tinydb', 'tornado',
     ],
     entry_points={
-        b'mopidy.httpext': [
+        b'mopidy.ext': [
             'lux = mopidy_lux:LuxExtension',
         ],
     },

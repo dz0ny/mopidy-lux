@@ -1,15 +1,21 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
     <meta charset="utf-8">
     <title>Lux</title>
     <meta name="description" content="Lux Player">
     <meta name="viewport" content="width=device-width">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+          rel="stylesheet">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -17,68 +23,88 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="newSrcApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+</head>
+<body ng-app="newSrcApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser.
+    Please <a href="http://browsehappy.com/">upgrade your browser</a> to
+    improve your experience.</p>
+<![endif]-->
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" class="navbar-default">
-            <div class="navbar-header">
-               <a class="navbar-brand" href="#">Mopidy</a>
-               <!-- <div bootswatch></div> -->
-             </div>
-            <ul class="nav navbar-nav">
-                <li data-match-route="/search.*"><a href="#/search"><i class="fa fa-search fa-2x"></i>Search</a></li>
-                <li data-match-route="/discover.*"><a href="#/discover"><i class="fa fa-bullseye fa-2x"></i>Discover</a></li>
-                <li data-match-route="/browse.*"><a href="#/browse"><i class="fa fa-music fa-2x"></i>Browse</a></li>
-                <li data-match-route="/queue.*"><a href="#/queue"><i class="fa fa-user fa-2x"></i>Playlist</a></li>
-                <li data-match-route="/settings"><a href="#/settings"><i class="fa fa-wrench fa-2x"></i>Settings</a></li>
-
-            </ul>
-
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" class="navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Mopidy</a>
+            <!-- <div bootswatch></div> -->
         </div>
+        <ul class="nav navbar-nav">
+            <li data-match-route="/search.*"><a href="#/search"><i
+                    class="fa fa-search fa-2x"></i>Search</a></li>
+            <li data-match-route="/discover.*"><a href="#/discover"><i
+                    class="fa fa-bullseye fa-2x"></i>Discover</a></li>
+            <li data-match-route="/browse.*"><a href="#/browse"><i
+                    class="fa fa-music fa-2x"></i>Browse</a></li>
+            <li data-match-route="/queue.*"><a href="#/queue"><i
+                    class="fa fa-user fa-2x"></i>Playlist</a></li>
+            <li data-match-route="/settings"><a href="#/settings"><i
+                    class="fa fa-wrench fa-2x"></i>Settings</a></li>
 
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-          <div class="content-header">
-                <h1>
-                    <a id="menu-toggle" href="#"><i class="fa fa-bars fa-4"></i></a>
-                    Mopidy
-                </h1>
-          </div>
-          <!-- Keep all page content within the page-content inset div! -->
-          <div class="page-content inset" ng-view=""></div>
-        </div>
+        </ul>
+
     </div>
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-8">
+                    <div class="content-header">
+                        <h1>
+                            <a id="menu-toggle" href="#"><i
+                                    class="fa fa-bars fa-4"></i></a>
+                            Mopidy
+                        </h1>
+                    </div>
+                    <div ng-view=""></div>
+                </div>
+                <div class="col-xs-5 col-md-4">Player</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/directives/bootswatch.js"></script>
-        <!-- endbuild -->
-     <script>
-    $("#menu-toggle").click(function(e) {
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/directives/bootswatch.js"></script>
+<script src="scripts/controllers/search.js"></script>
+<script src="scripts/controllers/discover.js"></script>
+<script src="scripts/controllers/browse.js"></script>
+<script src="scripts/controllers/playlist.js"></script>
+<script src="scripts/controllers/settings.js"></script>
+<!-- endbuild -->
+<script>
+    $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
     });
-    </script>
+</script>
 </body>
 </html>

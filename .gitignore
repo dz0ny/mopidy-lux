@@ -5,3 +5,5 @@ src/node_modules
 src/app/scripts/**/**.js
 src/app/scripts/**.js
 .idea
+*.egg*
+*.pyc
