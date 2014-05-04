@@ -54,7 +54,7 @@
 }
 
 .inset {
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
 .nav>li>a{
@@ -92,10 +92,6 @@
 
   #menu-toggle {
     display: inline-block;
-  }
-
-  .inset {
-    padding: 15px;
   }
 
 }
