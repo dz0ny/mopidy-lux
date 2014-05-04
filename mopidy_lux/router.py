@@ -5,28 +5,29 @@ from tinydb.storages import JSONStorage
 from tinydb.middlewares import CachingMiddleware
 import tornado.web
 
+from mopidy import http
 
-class LuxRouter(object):
-    def __init__(self, _config):
-        self.config = _config
-        self._db = TinyDB(
+
+class LuxRouter(http.Router):
+    name = 'lux'
+
+    def setup_routes(self):
+        db = TinyDB(
             self.config['lux']['db_file'],
             storage=CachingMiddleware(JSONStorage)
         )
-
-    def setup_routes(self):
         args = dict(
             config=self.config,
-            db=self._db
+            db=db
         )
         return [
-            (r"/lux/(.*)", tornado.web.StaticFileHandler, {
+            (r"/%s/(.*)" % self.name, http.StaticFileHandler, {
                 'path': os.path.join(os.path.dirname(__file__), 'static'),
                 'default_filename': 'index.html'
             }),
-            (r"/lux/playlist", Playlists, args),
-            (r"/lux/loved", Loved, args),
-            (r"/lux/discover", EchoNestsDiscover, args),
+            (r"/%s/playlist" % self.name, Playlists, args),
+            (r"/%s/loved" % self.name, Loved, args),
+            (r"/%s/discover" % self.name, EchoNestsDiscover, args),
         ]
 
 
