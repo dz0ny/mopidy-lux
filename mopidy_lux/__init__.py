@@ -21,6 +21,7 @@ class LuxExtension(ext.Extension):
     def get_config_schema(self):
         schema = super(LuxExtension, self).get_config_schema()
         schema['db_file'] = config.Path()
+        schema['echonest_key'] = config.Secret()
         return schema
 
     def setup(self, registry):
