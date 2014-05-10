@@ -24,7 +24,35 @@ module.exports = function (grunt) {
       app: require('./bower.json').appPath || 'app',
       dist: '../mopidy_lux/static'
     },
-
+    ngconstant: {
+      // Options for all targets
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '.tmp/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+          }
+        }
+      },
+      production: {
+        options: {
+          dest: '.tmp/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'production',
+          }
+        }
+      }
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -64,6 +92,13 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/mopidy',
+          host: '127.0.0.1',
+          port: 6680,
+          https: false,
+          changeOrigin: true
+        },
+        {
+          context: '/lux',
           host: '127.0.0.1',
           port: 6680,
           https: false,
@@ -385,6 +420,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
+      'configureProxies:server',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -407,9 +444,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'ngconstant:production',
     'concat',
     'ngmin',
     'copy:dist',

@@ -1,20 +1,27 @@
-<div class="table-responsive">
+<div class="table-responsive" ng-show="tracks">
   <table class="table table-hover">
       <thead>
         <tr>
           <th></th>
           <th>Song</th>
-          <th>Artist</th>
-          <th><i class="fa fa-clock-o fa-2"></i></th>
+          <th class="hidden-xs">Artist</th>
+          <th class="hidden-xs"><i class="fa fa-clock-o fa-2"></i></th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in tracks" ng-class="{ active: now_playing == item.track.uri }">
-          <td><button ng-click="play(item)" type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
-          <td>{{item.track.name}}</td>
-          <td>{{item.track.artists[0].name}}</td>
-          <td>{{item.track.length | date: item.track.length>3600000?'hh:mm:ss':'mm:ss'}}</td>
+        <tr bindonce ng-repeat="item in tracks track by $index">
+          <td class="hidden-xs"><button type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
+          <td class="visible-xs"><button type="button" class="btn btn-default btn-lg"><span class="fa fa-play-circle fa-5x"></span></button></td>
+          <td class="visible-xs">
+            <h5 bo-text="item.track.name"></h5>
+            <h5 bo-text="item.track.artists[0].name"></h5>
+            <h5 bo-text="item.track.length | totime"></h5>
+          </td>
+          <td class="hidden-xs" bo-text="item.track.name"></td>
+          <td class="hidden-xs" bo-text="item.track.artists[0].name"></td>
+          <td class="hidden-xs" bo-bind="item.track.length | totime"></td>
         </tr>
       </tbody>
     </table>
 </div>
+<h3 ng-hide="tracks" >Empty list!</h3>

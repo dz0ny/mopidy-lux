@@ -88,7 +88,6 @@
     display: inline-block;
     z-index: 1000;
   }
-
 }
 
 #right {
@@ -108,8 +107,10 @@
   color: white!important;
   /* margin: 30px; */
 }
-#main{
-  margin-left: -10px;
+
+#main {
+  padding-left: 5px;
+  padding-right: 30px;
 }
 .btn-xsm {
   padding: 2px 4px;

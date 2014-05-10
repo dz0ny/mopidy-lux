@@ -19,6 +19,7 @@ angular.module('newSrcApp')
         $timeout.cancel timer
 
     updateInfo = (data) ->
+      console.log data
       if data
         $scope.track = data.name
         if data.artists
@@ -34,7 +35,12 @@ angular.module('newSrcApp')
           cover = cover.replace("-large.jp", "-t500x500.jp")  if /sndcdn/.test(cover)
           $scope.cover= cover
         else
-          $scope.cover = false
+          if $scope.album and $scope.artist
+            $scope.cover = "/lux/cover?album=#{$scope.album}&artist=#{$scope.artist}"
+          else if $scope.artist
+            $scope.cover = "/lux/cover?artist=#{$scope.artist}&track=#{$scope.track}"
+          else
+            $scope.cover = false
         if data.length
           $scope.track_length = data.length
         else
@@ -59,9 +65,10 @@ angular.module('newSrcApp')
     # Event handlers
     Mopidy.on "event:optionsChanged", getButtonStates
     Mopidy.on "event:seeked", (data)->
+      $timeout.cancel timer
       updateScrubState data.time_position
     Mopidy.on "event:playbackStateChanged", (data) ->
-      $log.info data
+      $timeout.cancel timer
       $scope.state = data.new_state
       Mopidy.getCurrentTrack updateInfo
       Mopidy.getTimePosition updateScrubState
@@ -75,15 +82,19 @@ angular.module('newSrcApp')
       Mopidy.native.playback.play()
 
     $scope.stop = ->
+      $timeout.cancel timer
       Mopidy.native.playback.stop()
 
     $scope.pause = ->
+      $timeout.cancel timer
       Mopidy.native.playback.pause()
 
     $scope.next = ->
+      $timeout.cancel timer
       Mopidy.native.playback.next()
 
     $scope.prev = ->
+      $timeout.cancel timer
       Mopidy.native.playback.previous()
 
     $scope.toggle_random = ->
@@ -94,3 +105,9 @@ angular.module('newSrcApp')
 
     $scope.switchmode = ->
       $rootScope.ui_state = !$rootScope.ui_state
+
+    $scope.seek = (event) ->
+      $log.info event
+      newpos = (event.offsetX / event.currentTarget.clientWidth) * $scope.track_length
+      $log.info newpos
+      Mopidy.native.playback.seek newpos

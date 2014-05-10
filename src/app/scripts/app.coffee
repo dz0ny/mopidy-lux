@@ -5,6 +5,8 @@ angular
     'ngSanitize',
     'ngRoute',
     'mgcrea.ngStrap',
+    'config',
+    'pasvaz.bindonce'
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -14,11 +16,9 @@ angular
       .otherwise
         redirectTo: '/'
 
-  .run ($rootScope)->
+  .run ($rootScope, ENV)->
     $rootScope.toplayer = ->
       $("#wrapper").toggleClass("active")
       $rootScope.ui_state = !$rootScope.ui_state
-    $rootScope.$watch 'description', () ->
-      angular.element("head meta[name=description]").attr("content", $rootScope.description)
     $rootScope.$watch 'title', () ->
-      angular.element("head title").text("Lux - #{$rootScope.title}")
+      angular.element("head title").text("Lux(#{ENV.name}) - #{$rootScope.title}")

@@ -7,24 +7,25 @@
 
 	<div id="footer">
 		<div id="player">
-				<div id="track-name-wrapper">
+				<div id="track-name-wrapper" ng-show="track">
 						<span><h4>{{track}}</h4></span>
 				</div>
-				<div id="artist-name-wrapper">
+				<div id="artist-name-wrapper"ng-show="artist" >
 					<span><h3>{{artist}}</h3></span>
 				</div>
 		</div>
+
 		<div id="progress">
 			<div id="bar-click">
-				<div id="bar-outer" class="navbar-default">
+				<div id="bar-outer" class="navbar-default" ng-mousedown="seek($event)">
 					<div id="bar-inner" class="navbar-inverse" style="width: {{track_position}}%;"></div>
 					<span id="position" style="left: {{track_position}}%;"></span>
 				</div>
 			</div>
 			<div id="time-marker" style="left: 2px;">
 				<div id="time-marker-text">
-					<span id="track-current">{{track_position_time | date: track_length>3600000?'hh:mm:ss':'mm:ss'}}</span>
-					<span id="track-length">{{track_length | date: track_length>3600000?'hh:mm:ss':'mm:ss'}}</span>
+					<span id="track-current">{{track_position_time | totime}}</span>
+					<span id="track-length">{{track_length | totime}}</span>
 				</div>
 			</div>
 		</div>

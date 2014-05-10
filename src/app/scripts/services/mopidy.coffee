@@ -1,8 +1,7 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .factory 'Mopidy', ($rootScope)->
-  	#Override mopidy.on to $apply the changes to angular
+  .factory 'Mopidy', ($rootScope, ENV)->
   	cached = {
   	  albums: false
   	  artists: false
@@ -12,8 +11,6 @@ angular.module('newSrcApp')
   	  mopidy.on eventName, (data) ->
   	    $rootScope.$apply ->
   	      fn data
-  	_getCoverFromMBID = (mbid)->
-  	  return "http://coverartarchive.org/release/#{mbid}/front"
   	_buildLibrary = (fn)->
   	  unless cached.artists and cached.albums
 
@@ -48,12 +45,11 @@ angular.module('newSrcApp')
   	  else
   	    fn cached.albums, cached.artists
 
-  	mopidy = new Mopidy({webSocketUrl:'ws://localhost:6680/mopidy/ws'})
-  	window.mop = mopidy
+  	mopidy = new Mopidy({webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false})
 
   	internalOn "state:online", ->
   	  $rootScope.isConnected = true
-      
+
   	internalOn "state:offline", ->
   	  $rootScope.isConnected = false
 
@@ -63,6 +59,7 @@ angular.module('newSrcApp')
   	off: mopidy.off
   	emit: mopidy.emit
   	native: mopidy
+
   	getCurrentTrack: (callback) ->
   	  mopidy.playback.getCurrentTrack().then (data) ->
   	    $rootScope.$apply ->

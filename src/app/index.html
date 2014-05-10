@@ -84,21 +84,22 @@
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
-<script src="http://localhost:6680/mopidy/mopidy.js"></script>
+<script src="/mopidy/mopidy.js"></script>
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
 <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+<script src="bower_components/angular-bindonce/bindonce.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
 <script src="scripts/directives/bootswatch.js"></script>
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/discover.js"></script>
@@ -107,6 +108,7 @@
 <script src="scripts/controllers/settings.js"></script>
 <script src="scripts/services/mopidy.js"></script>
 <script src="scripts/controllers/player.js"></script>
+<script src="scripts/filters/totime.js"></script>
 <!-- endbuild -->
 <script>
     $("#menu-toggle").click(function (e) {

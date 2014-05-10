@@ -16,8 +16,12 @@
   vertical-align: middle;
 }
 
-#cover-art img {
+#cover-art img{
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
   margin: 0 auto;
+}
+#cover-art span {
+  font-size: 20em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
 }
 
@@ -150,7 +154,8 @@
   color: white;
 }
 
-#controls .btn:hover, #controls .btn.active {
+#controls .btn:hover,
+#controls .btn.active {
   background: #0e0e0e;
   border: initial;
 }
