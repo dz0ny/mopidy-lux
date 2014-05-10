@@ -64,6 +64,7 @@ class EchoNestsArtistArt(DefaultHandler):
         self.config = config
         self.db = db
         self.echonest = echonest
+
     def get(self):
         response = self.echonest.get(
             'artist/profile',

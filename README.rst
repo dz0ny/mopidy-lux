@@ -42,7 +42,6 @@ Project resources
 - `Download development snapshot
   <https://github.com/dz0ny/mopidy-lux/archive/master.tar.gz#egg=Mopidy-Lux-dev>`_
 
-
 Changelog
 =========
 

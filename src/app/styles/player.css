@@ -1,0 +1,177 @@
+#artist-name-wrapper > span > h3,
+#track-name-wrapper > span > h4 {
+  text-align: center;
+  color: white;
+}
+
+#controls {
+  text-align: center;
+}
+
+#controls .btn-group {
+  margin: 0 auto;
+  text-align: center;
+  width: inherit;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#cover-art img {
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+}
+
+#player #wrap {
+  padding: 5px;
+}
+
+#track-name-wrapper,
+#artist-name-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+#track-name {
+  font-weight: 600;
+}
+
+#track-name,
+#track-artist {
+  display: inline-block;
+  margin: 0;
+}
+
+.marquee {
+  width: 6000px;
+  height: 20px;
+  text-align: left;
+  position: relative;
+  clear: both;
+}
+
+#progress {
+  padding-bottom: 20px;
+  min-height: 39px;
+  position: relative;
+}
+
+#time-marker-text:before,
+#time-marker-text:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+#time-marker-text:after {
+  clear: both;
+}
+
+#time-marker-text:before,
+#time-marker-text:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+#time-marker-text:after {
+  clear: both;
+}
+
+#track-current,
+#track-length {
+  color: #88898c;
+  font-size: 12px;
+}
+
+#track-current {
+  float: left;
+}
+
+#track-length {
+  float: right;
+}
+
+#bar-click {
+  position: absolute;
+  height: 18px;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  margin-top: -9px;
+}
+
+#bar-outer,
+#bar-inner {
+  border-radius: 3px;
+  bottom: 8px;
+  left: 0;
+  height: 4px;
+  right: 0;
+  position: absolute;
+}
+
+#bar-click:hover #bar-outer {
+  bottom: 7px;
+  height: 6px;
+}
+
+#bar-click:hover #bar-inner {
+  height: 6px;
+}
+
+#bar-inner {
+  bottom: 0;
+  right: auto;
+}
+
+#position {
+  background: #fff;
+  border-radius: 6px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  display: block;
+  height: 12px;
+  position: absolute;
+  top: -3px;
+  width: 12px;
+  opacity: 0;
+  margin-left: -6px;
+}
+
+#bar-click:hover #position {
+  opacity: 1;
+}
+
+#controls .btn {
+  background: transparent;
+  border: initial;
+  color: white;
+}
+
+#controls .btn:hover {
+  background: #0e0e0e;
+  border: initial;
+}
+
+#controls .btn-lg {
+  padding: 16px 32px;
+}
+
+#player #footer {
+  bottom: 0;
+  padding: 15px;
+  position: absolute;
+  background-color: rgb(19, 19, 19);
+  background-image: linear-gradient(to right,
+    rgba(18,18,18,1) 0%,
+    rgba(20,20,20,1) 25%,
+    rgba(23,23,23,1) 50%,
+    rgba(20,20,20,1) 75%,
+    rgba(18,18,18,1) 100%
+  );
+  padding-left: 0;
+  right: 0;
+  left: 15px;
+}

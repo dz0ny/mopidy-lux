@@ -12,7 +12,7 @@
     <title>Lux</title>
     <meta name="description" content="Lux Player">
     <meta name="viewport" content="width=device-width">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css"
           rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
           rel="stylesheet">
@@ -22,6 +22,7 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/player.css">
     <!-- endbuild -->
 </head>
 <body ng-app="newSrcApp">
@@ -40,14 +41,14 @@
             <!--  -->
         </div>
         <ul class="nav navbar-nav">
+            <li data-match-route="/queue.*"><a href="#/queue"><i
+                class="fa fa-music fa-2x"></i>Playlist</a></li>
             <li data-match-route="/search.*"><a href="#/search"><i
                     class="fa fa-search fa-2x"></i>Search</a></li>
             <li data-match-route="/discover.*"><a href="#/discover"><i
                     class="fa fa-bullseye fa-2x"></i>Discover</a></li>
             <li data-match-route="/browse.*"><a href="#/browse"><i
-                    class="fa fa-music fa-2x"></i>Browse</a></li>
-            <li data-match-route="/queue.*"><a href="#/queue"><i
-                    class="fa fa-user fa-2x"></i>Playlist</a></li>
+                    class="fa fa-folder-open fa-2x"></i>Browse</a></li>
             <li data-match-route="/settings"><a href="#/settings"><i
                     class="fa fa-wrench fa-2x"></i>Settings</a></li>
 
@@ -60,7 +61,7 @@
         <!-- Keep all page content within the page-content inset div! -->
         <div class="page-content inset">
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8">
+                <div class="col-xs-12 col-sm-8 col-md-8" id="main">
                     <div class="content-header">
                         <h1>
                             <a id="menu-toggle" href="#"><i
@@ -69,8 +70,11 @@
                         </h1>
                     </div>
                     <div ng-view=""></div>
+                    <div bootswatch></div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 navbar-inverse" id="player"><div bootswatch></div></div>
+                <div class="col-xs-12 col-sm-4 col-md-4" id="right">
+                    <div id="player" ng-controller="PlayerCtrl" ng-include="'views/player.html'"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,7 +84,7 @@
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
-<script src="/mopidy/mopidy.min.js"></script>
+<script src="http://192.168.3.170:6680/mopidy/mopidy.js"></script>
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>

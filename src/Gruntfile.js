@@ -64,14 +64,14 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/mopidy',
-          host: 'localhost',
+          host: '127.0.0.1',
           port: 6680,
           https: false,
           changeOrigin: true
         }
       ],
       options: {
-        port: 9000,
+        port: 8001,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
         livereload: 35729
