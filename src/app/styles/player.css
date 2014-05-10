@@ -150,7 +150,7 @@
   color: white;
 }
 
-#controls .btn:hover {
+#controls .btn:hover, #controls .btn.active {
   background: #0e0e0e;
   border: initial;
 }

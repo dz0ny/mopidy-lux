@@ -47,9 +47,21 @@ angular.module('newSrcApp')
         $scope.track = false
         $scope.track_length = 0
         $scope.track_position = 0
+
+    getButtonStates = ->
+      Mopidy.getRandom (random)->
+        $scope.random = random
+        $log.info random
+      Mopidy.getRepeat (repeat)->
+        $scope.repeat = repeat
+        $log.info repeat
+
+    # Event handlers
+    Mopidy.on "event:optionsChanged", getButtonStates
     Mopidy.on "event:seeked", (data)->
       updateScrubState data.time_position
     Mopidy.on "event:playbackStateChanged", (data) ->
+      $log.info data
       $scope.state = data.new_state
       Mopidy.getCurrentTrack updateInfo
       Mopidy.getTimePosition updateScrubState
@@ -58,7 +70,7 @@ angular.module('newSrcApp')
         $scope.state = state
         Mopidy.getCurrentTrack updateInfo
         Mopidy.getTimePosition updateScrubState
-
+      getButtonStates()
     $scope.play = ->
       Mopidy.native.playback.play()
 
@@ -73,3 +85,9 @@ angular.module('newSrcApp')
 
     $scope.prev = ->
       Mopidy.native.playback.previous()
+
+    $scope.toggle_random = ->
+      Mopidy.native.tracklist.setRandom(!$scope.random)
+
+    $scope.toggle_repeat = ->
+      Mopidy.native.tracklist.setRepeat(!$scope.repeat)

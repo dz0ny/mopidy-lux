@@ -1,6 +1,6 @@
-*****************
+**********
 Mopidy-Lux
-*****************
+**********
 
 .. image:: https://pypip.in/v/Mopidy-Lux/badge.png
     :target: https://pypi.python.org/pypi/Mopidy-Lux/
@@ -29,9 +29,18 @@ Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
 
 
 Usage
-=============
+=====
 
 #. Visit http://localhost:6680/lux
+
+Developing
+==========
+
+In dev mode
+    cd src; grunt serve
+
+Before shipping
+    cd src; grunt build --force
 
 
 Project resources

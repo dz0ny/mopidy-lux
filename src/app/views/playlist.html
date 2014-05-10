@@ -1,1 +1,20 @@
-<p ng-repeat="track in tracks">{{track.artist}}<span ng-show="track.artist"> - </span>{{track.track}}</p>
+<div class="table-responsive">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Artist</th>
+          <th>Song</th>
+          <th><i class="fa fa-clock-o fa-2"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in tracks" ng-class="{ active: now_playing == item.track.uri }">
+          <td><button ng-click="play(item)" type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
+          <td>{{item.track.artists[0].name}}</td>
+          <td>{{item.track.name}}</td>
+          <td>{{item.track.length | date: item.track.length>3600000?'hh:mm:ss':'mm:ss'}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

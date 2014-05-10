@@ -1,0 +1,11 @@
+ table .btn{
+   background: transparent;
+   padding:0;
+   border:none;
+   color:black;
+ }
+ table .btn:hover{
+   background: transparent;
+   padding:0;
+   border:none;
+ }

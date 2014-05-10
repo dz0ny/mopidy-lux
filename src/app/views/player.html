@@ -31,9 +31,9 @@
 
 		<div id="controls">
 			<div class="btn-group">
-				<button ng-click="more()" type="button" class="btn btn-default btn-lg"><span class="fa fa-random"></span></button>
-				<button ng-click="more()" type="button" class="btn btn-default btn-lg"><span class="fa fa-retweet"></span></button>
-				<button ng-click="more()" type="button" class="btn btn-default btn-lg"><span class="fa fa-volume-up"></span></button>
+				<button ng-class="{ active: random }" ng-click="toggle_random()" type="button" class="btn btn-default btn-lg"><span class="fa fa-random"></span></button>
+				<button ng-class="{ active: repeat }" ng-click="toggle_repeat()" type="button" class="btn btn-default btn-lg"><span class="fa fa-retweet"></span></button>
+				<button type="button" class="btn btn-default btn-lg"><span class="fa fa-volume-up"></span></button>
 			</div>
 			<div class="btn-group">
 				<button ng-click="prev()" type="button" class="btn btn-default btn-lg"><span class="fa fa-step-backward"></span></button>

@@ -28,7 +28,7 @@ angular.module('newSrcApp')
   	            unless _.contains t_albums, track.album.name
   	              t_albums.push track.album.name
   	              albums.push {
-  	                name: track.album.name 
+  	                name: track.album.name
   	                art: _.first(track.album.images)
   	                backend: backend.uri
   	                model: "album"
@@ -36,7 +36,7 @@ angular.module('newSrcApp')
   	            unless _.contains t_artists, _.first(track.artists).name
   	              t_artists.push _.first(track.artists).name
   	              artists.push {
-  	                name: _.first(track.artists).name 
+  	                name: _.first(track.artists).name
   	                art: _.first(track.album.images)
   	                backend: backend.uri
   	                model: "artist"
@@ -50,17 +50,17 @@ angular.module('newSrcApp')
 
   	mopidy = new Mopidy({webSocketUrl:'ws://localhost:6680/mopidy/ws'})
   	window.mop = mopidy
-  	#mopidy.on console.log.bind(console)
 
   	internalOn "state:online", ->
   	  $rootScope.isConnected = true
-
+      
   	internalOn "state:offline", ->
   	  $rootScope.isConnected = false
 
   	isConnected: ->
   	  return $rootScope.isConnected
   	on: internalOn
+  	off: mopidy.off
   	emit: mopidy.emit
   	native: mopidy
   	getCurrentTrack: (callback) ->
@@ -72,7 +72,7 @@ angular.module('newSrcApp')
   	  mopidy.playback.changeTrack track
 
   	getTracklistPosition: (callback) ->
-  	  mopidy.playback.getTracklistPosition().then (data) ->
+  	  mopidy.tracklist.index().then (data) ->
   	    $rootScope.$apply ->
   	      callback data
 
@@ -88,6 +88,16 @@ angular.module('newSrcApp')
 
   	getVolume: (callback) ->
   	  mopidy.playback.getVolume().then (data) ->
+  	    $rootScope.$apply ->
+  	      callback data
+
+  	getRandom: (callback) ->
+  	  mopidy.tracklist.getRandom().then (data) ->
+  	    $rootScope.$apply ->
+  	      callback data
+
+  	getRepeat: (callback) ->
+  	  mopidy.tracklist.getRepeat().then (data) ->
   	    $rootScope.$apply ->
   	      callback data
 
