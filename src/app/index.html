@@ -41,6 +41,8 @@
             <a class="navbar-brand" href="#">Mopidy</a>
         </div>
         <ul class="nav navbar-nav" role="navigation" bs-navbar>
+            <li><a class="visible-xs" ng-click="toplayer()" href="#"><i
+                class="fa fa-play-circle-o fa-2x"></i>Player</a></li>
             <li data-match-route="^/$"><a href="#/"><i
                 class="fa fa-music fa-2x"></i>Playlist</a></li>
             <li data-match-route="/search.*"><a href="#/search"><i
@@ -60,7 +62,7 @@
         <!-- Keep all page content within the page-content inset div! -->
         <div class="page-content inset">
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 hidden-xs" id="main">
+                <div class="col-xs-12 col-sm-8 col-md-8" ng-class="{'hidden-xs':ui_state}" id="main">
                     <div class="content-header">
                         <h1>
                             <a id="menu-toggle" href="#"><i
@@ -70,7 +72,7 @@
                     </div>
                     <div ng-view=""></div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right">
+                <div class="col-xs-12 col-sm-4 col-md-4" id="right" ng-class="{'hidden-xs':!ui_state}">
                     <div id="player" ng-controller="PlayerCtrl" ng-include="'views/player.html'"></div>
                 </div>
             </div>

@@ -15,6 +15,9 @@ angular
         redirectTo: '/'
 
   .run ($rootScope)->
+    $rootScope.toplayer = ->
+      $("#wrapper").toggleClass("active")
+      $rootScope.ui_state = !$rootScope.ui_state
     $rootScope.$watch 'description', () ->
       angular.element("head meta[name=description]").attr("content", $rootScope.description)
     $rootScope.$watch 'title', () ->

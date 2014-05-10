@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $log) ->
+  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $log, $rootScope) ->
     # Track tracking
     timer = false
     updateScrubState = (pos) ->
@@ -91,3 +91,6 @@ angular.module('newSrcApp')
 
     $scope.toggle_repeat = ->
       Mopidy.native.tracklist.setRepeat(!$scope.repeat)
+
+    $scope.switchmode = ->
+      $rootScope.ui_state = !$rootScope.ui_state

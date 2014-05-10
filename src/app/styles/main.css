@@ -89,10 +89,6 @@
     z-index: 1000;
   }
 
-  body,
-  html {
-    overflow: hidden;
-  }
 }
 
 #right {
@@ -112,7 +108,9 @@
   color: white!important;
   /* margin: 30px; */
 }
-
+#main{
+  margin-left: -10px;
+}
 .btn-xsm {
   padding: 2px 4px;
 }
