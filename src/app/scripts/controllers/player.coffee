@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $log, $rootScope) ->
+  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $log, $rootScope, $window) ->
     # Track tracking
     timer = false
     updateScrubState = (pos) ->
@@ -36,9 +36,9 @@ angular.module('newSrcApp')
           $scope.cover= cover
         else
           if $scope.album and $scope.artist
-            $scope.cover = "/lux/cover?album=#{$scope.album}&artist=#{$scope.artist}"
+            $scope.cover = "/lux/cover?album=#{$window.encodeURIComponent $scope.album}&artist=#{$window.encodeURIComponent $scope.artist}"
           else if $scope.artist
-            $scope.cover = "/lux/cover?artist=#{$scope.artist}&track=#{$scope.track}"
+            $scope.cover = "/lux/cover?artist=#{$window.encodeURIComponent $scope.artist}&track=#{$window.encodeURIComponent $scope.track}"
           else
             $scope.cover = false
         if data.length

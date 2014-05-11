@@ -64,32 +64,6 @@
   padding: 10px 10px;
 }
 
-@media (max-width:767px) {
-  #wrapper {
-    padding-left: 0;
-  }
-
-  #sidebar-wrapper {
-    left: 0;
-  }
-
-  #wrapper.active {
-    position: relative;
-    left: 90px;
-  }
-
-  #wrapper.active #sidebar-wrapper {
-    left: 90px;
-    width: 90px;
-    transition: all 0.4s ease 0s;
-  }
-
-  #menu-toggle {
-    display: inline-block;
-    z-index: 1000;
-  }
-}
-
 #right {
   position: fixed;
   overflow: hidden;
@@ -114,4 +88,32 @@
 }
 .btn-xsm {
   padding: 2px 4px;
+}
+
+@media (max-width:767px) {
+  #wrapper {
+    padding-left: 0;
+  }
+  #main{
+    padding-right: 5px;
+  }
+  #sidebar-wrapper {
+    left: 0;
+  }
+
+  #wrapper.active {
+    position: relative;
+    left: 90px;
+  }
+
+  #wrapper.active #sidebar-wrapper {
+    left: 90px;
+    width: 90px;
+    transition: all 0.4s ease 0s;
+  }
+
+  #menu-toggle {
+    display: inline-block;
+    z-index: 1000;
+  }
 }

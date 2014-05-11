@@ -76,21 +76,33 @@ class CoverArt(DefaultHandler):
         album = self.get_argument("album", None, True)
 
         if album and artist:
-            _album = self.getlfm(method='album.getinfo', artist=artist,
-                                 album=album,
-                                 autocorrect=1)
-            self.redirect(self.get_lfm_image(_album.json().get('album').get(
-                'image')))
+            _album = self.getlfm(
+                method='album.getinfo',
+                artist=artist.encode('utf-8'),
+                album=album.encode('utf-8'),
+                autocorrect=1
+            )
+            self.redirect(self.get_lfm_image(
+                _album.json().get('album').get('image')
+            ))
         elif artist and track:
-            _track = self.getlfm(method='track.getInfo', artist=artist,
-                                 track=track, autocorrect=1)
-            self.redirect(self.get_lfm_image(_track.json().get('track').get(
-                'image')))
+            _track = self.getlfm(
+                method='track.getInfo',
+                artist=artist.encode('utf-8'),
+                track=track.encode('utf-8'),
+                autocorrect=1
+            )
+            self.redirect(self.get_lfm_image(
+                _track.json().get('track').get('image')
+            ))
         elif artist:
-            _artist = self.getlfm(method='artist.getinfo', artist=artist,
-                                  autocorrect=1)
-            self.redirect(self.get_lfm_image(_artist.json().get('artist').get(
-                'image')))
+            _artist = self.getlfm(
+                method='artist.getinfo',
+                artist=artist.encode('utf-8'),
+                autocorrect=1)
+            self.redirect(self.get_lfm_image(
+                _artist.json().get('artist').get('image')
+            ))
         else:
             self.write('default')
 
