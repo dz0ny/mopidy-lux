@@ -1,3 +1,9 @@
+<div class="pull-right">
+  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Load playlist</button>
+  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Save playlist</button>
+  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Clear playlist</button>
+</div>
+
 <div class="table-responsive" ng-show="tracks">
   <table class="table table-hover">
       <thead>
@@ -10,8 +16,8 @@
       </thead>
       <tbody>
         <tr bindonce ng-repeat="item in tracks track by $index">
-          <td class="hidden-xs"><button type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
-          <td class="visible-xs"><button type="button" class="btn btn-default btn-lg"><span class="fa fa-play-circle fa-5x"></span></button></td>
+          <td class="hidden-xs"><button ng-click="play(item)" type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
+          <td class="visible-xs"><button ng-click="play(item)" type="button" class="btn btn-default btn-lg"><span class="fa fa-play-circle fa-5x"></span></button></td>
           <td class="visible-xs">
             <h5 bo-text="item.track.name"></h5>
             <h5 bo-text="item.track.artists[0].name"></h5>

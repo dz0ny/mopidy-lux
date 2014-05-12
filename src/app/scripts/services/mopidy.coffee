@@ -45,7 +45,7 @@ angular.module('newSrcApp')
   	  else
   	    fn cached.albums, cached.artists
 
-  	mopidy = new Mopidy({webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false})
+  	window.mopidy = mopidy = new Mopidy({webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false})
 
   	internalOn "state:online", ->
   	  $rootScope.isConnected = true
@@ -65,11 +65,16 @@ angular.module('newSrcApp')
   	    $rootScope.$apply ->
   	      callback data
 
+  	getCurrentTlTrack: (callback) ->
+  	  mopidy.playback.getCurrentTlTrack().then (data) ->
+  	    $rootScope.$apply ->
+  	      callback data
+
   	changeTrack: (track) ->
   	  mopidy.playback.changeTrack track
 
-  	getTracklistPosition: (callback) ->
-  	  mopidy.tracklist.index().then (data) ->
+  	getTracklistPosition: (tl_track, callback) ->
+  	  mopidy.tracklist.index(tl_track).then (data) ->
   	    $rootScope.$apply ->
   	      callback data
 

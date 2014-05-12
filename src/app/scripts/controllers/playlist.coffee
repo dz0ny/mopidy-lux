@@ -2,40 +2,43 @@
 
 angular.module('newSrcApp')
   .controller 'PlaylistCtrl', ($scope, Mopidy, $rootScope, $log) ->
-    $rootScope.title = "Playlist"
-    get_current_track = (data)->
-      Mopidy.getCurrentTrack (data)->
-        $scope.now_playing = data.uri
-        $log.info data.uri
-      Mopidy.getState (state) ->
-        $scope.state = state
-      Mopidy.getTracklistPosition (ctrack) ->
-        console.log ctrack
-        $scope.current_track = ctrack
 
-    update_tracklist = ->
+    $rootScope.title = "Playlist"
+
+    playbackStateChanged = (data)->
+      if data.new_state is 'playing'
+        Mopidy.getCurrentTlTrack (tl_track)->
+          Mopidy.native.tracklist.index(tl_track).then (index) ->
+            $('table tbody tr').removeClass('active')
+            tr = $("table tbody tr:eq(#{index})").addClass('active')
+            $("html, body").animate
+              scrollTop: tr.offset().top
+            , 800
+
+    tracklistChanged = ->
       Mopidy.getTracklist (data) ->
         $scope.tracks = data
-        get_current_track()
 
     $scope.play = (track) ->
       Mopidy.changeTrack track
-      if $scope.state isnt "playing"
-        Mopidy.native.playback.play()
+      Mopidy.native.playback.play()
+
+    $scope.clear = () ->
+      Mopidy.native.tracklist.clear()
 
     online = ->
-      update_tracklist()
-      get_current_track()
+      tracklistChanged()
+      playbackStateChanged({new_state:'playing'})
 
     #handle events
-    Mopidy.on "event:tracklistChanged", update_tracklist
-    Mopidy.on "event:playbackStateChanged", get_current_track
+    Mopidy.on "event:tracklistChanged", tracklistChanged
+    Mopidy.on "event:playbackStateChanged", playbackStateChanged
     Mopidy.on "state:online", online
     if $rootScope.isConnected
       online()
 
     # deregister handlers
     $scope.$on '$destroy', ->
-      Mopidy.off "event:tracklistChanged", update_tracklist
-      Mopidy.off "event:playbackStateChanged", get_current_track
+      Mopidy.off "event:tracklistChanged", tracklistChanged
+      Mopidy.off "event:playbackStateChanged", playbackStateChanged
       Mopidy.off "state:online", online

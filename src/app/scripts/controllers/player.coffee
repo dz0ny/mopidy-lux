@@ -19,7 +19,6 @@ angular.module('newSrcApp')
         $timeout.cancel timer
 
     updateInfo = (data) ->
-      console.log data
       if data
         $scope.track = data.name
         if data.artists
