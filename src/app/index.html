@@ -63,14 +63,7 @@
         <div class="page-content inset">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-8" ng-class="{'hidden-xs':ui_state}" id="main">
-                    <div class="content-header">
-                        <h1>
-                            <a id="menu-toggle" href="#"><i
-                                    class="fa fa-bars fa-4"></i></a>
-                            {{title}}
-                        </h1>
-                    </div>
-                    <div ng-view=""></div>
+                    <div id="holder" ng-view=""></div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4" id="right" ng-class="{'hidden-xs':!ui_state}">
                     <div id="player" ng-controller="PlayerCtrl" ng-include="'views/player.html'"></div>
@@ -111,11 +104,5 @@
 <script src="scripts/filters/totime.js"></script>
 <script src="scripts/filters/uriencode.js"></script>
 <!-- endbuild -->
-<script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
-</script>
 </body>
 </html>

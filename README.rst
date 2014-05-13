@@ -16,6 +16,12 @@ Mopidy-Lux
 
 `Mopidy <http://www.mopidy.com/>`_ extension with nice web UI.
 
+.. image:: https://cloud.githubusercontent.com/assets/239513/2962749/a57685e8-dad3-11e3-9340-ac16eccc1436.png
+
+.. image:: https://cloud.githubusercontent.com/assets/239513/2962750/a58e0aa6-dad3-11e3-8133-ad57e1d00550.png
+
+.. image:: https://cloud.githubusercontent.com/assets/239513/2962751/a59e48ee-dad3-11e3-952e-d2f399e3ad84.png
+
 
 Installation
 ============

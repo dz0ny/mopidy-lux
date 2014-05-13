@@ -1,8 +1,22 @@
-<div class="pull-right">
-  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Load playlist</button>
-  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Save playlist</button>
-  <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm"><i class="fa fa-eraser"></i>Clear playlist</button>
+<div class="content-header">
+    <h1>
+        <button class="btn btn-default" id="menu-toggle" ng-click="toggleMenu()" href="#"><i
+                class="fa fa-bars fa-3x"></i></button>
+        {{title}}
+    </h1>
+    <div class="pull-right tools">
+      <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm">
+        <i class="fa fa-folder-open"></i>
+        <span class="hidden-xs">Load playlist</span></button>
+      <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm">
+        <i class="fa fa-save"></i>
+        <span class="hidden-xs">Save playlist</span></button>
+      <button ng-show="tracks" ng-click="clear()" type="button" class="btn btn-default btn-xsm">
+        <i class="fa fa-eraser"></i>
+        <span class="hidden-xs">Clear playlist</span></button>
+    </div>
 </div>
+
 
 <div class="table-responsive" ng-show="tracks">
   <table class="table table-hover">
@@ -17,7 +31,8 @@
       <tbody>
         <tr bindonce ng-repeat="item in tracks track by $index">
           <td class="hidden-xs"><button ng-click="play(item)" type="button" class="btn btn-default btn-xsm"><span class="fa fa-play-circle"></span></button></td>
-          <td class="visible-xs"><button ng-click="play(item)" type="button" class="btn btn-default btn-lg"><span class="fa fa-play-circle fa-5x"></span></button></td>
+          <td class="visible-xs play"><button ng-click="play(item)" type="button" class="btn btn-default btn-lg"><span class="fa fa-play fa-5x"></span></button></td>
+          <td class="visible-xs pause"><button ng-click="pause()" type="button" class="btn btn-default btn-lg"><span class="fa fa-pause fa-5x"></span></button></td>
           <td class="visible-xs">
             <h5 bo-text="item.track.name"></h5>
             <h5 bo-text="item.track.artists[0].name"></h5>

@@ -21,4 +21,7 @@ angular
       $("#wrapper").toggleClass("active")
       $rootScope.ui_state = !$rootScope.ui_state
     $rootScope.$watch 'title', () ->
-      angular.element("head title").text("Lux(#{ENV.name}) - #{$rootScope.title}")
+      if ENV.name is 'development'
+        angular.element("head title").text("Lux(#{ENV.build}) - #{$rootScope.title}")
+      else
+        angular.element("head title").text("Lux - #{$rootScope.title}")

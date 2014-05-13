@@ -5,19 +5,32 @@ angular.module('newSrcApp')
 
     $rootScope.title = "Playlist"
 
+    scrollTo = (index)->
+      $('table tbody tr').removeClass('active')
+      tr = $("table tbody tr:eq(#{index})").addClass('active')
+      $("body").animate
+        scrollTop: tr.offset().top-100
+      , 800
+
+    $scope.$watch "indexNow", (new_value, old_value)->
+      if new_value >= 0
+        scrollTo(new_value)
+
     playbackStateChanged = (data)->
       if data.new_state is 'playing'
         Mopidy.getCurrentTlTrack (tl_track)->
           Mopidy.native.tracklist.index(tl_track).then (index) ->
-            $('table tbody tr').removeClass('active')
-            tr = $("table tbody tr:eq(#{index})").addClass('active')
-            $("html, body").animate
-              scrollTop: tr.offset().top
-            , 800
+            $scope.indexNow = index
 
     tracklistChanged = ->
       Mopidy.getTracklist (data) ->
         $scope.tracks = data
+
+    $scope.pause = (track) ->
+      Mopidy.native.playback.pause()
+
+    $scope.toggleMenu = ->
+      $("#wrapper").toggleClass("active")
 
     $scope.play = (track) ->
       Mopidy.changeTrack track

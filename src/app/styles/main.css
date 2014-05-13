@@ -1,3 +1,6 @@
+body{
+  overflow-x:hidden;
+}
 #wrapper {
   padding-left: 90px;
   transition: all 0.4s ease 0s;
@@ -49,7 +52,9 @@
   line-height: 65px;
   display: inline-block;
 }
-
+.content-header .tools {
+  padding-right:10px;
+}
 #menu-toggle {
   display: none;
 }
@@ -86,17 +91,28 @@
   padding-left: 5px;
   padding-right: 30px;
 }
+
 .btn-xsm {
   padding: 2px 4px;
 }
-
+#menu-toggle{
+  background: transparent;
+  border:none;
+  padding: 0;
+}
 @media (max-width:767px) {
   #wrapper {
     padding-left: 0;
   }
-  #main{
+
+  #main {
     padding-right: 5px;
   }
+
+  #main #holder {
+    padding-top: 5em;
+  }
+
   #sidebar-wrapper {
     left: 0;
   }
@@ -104,6 +120,16 @@
   #wrapper.active {
     position: relative;
     left: 90px;
+  }
+
+  .content-header .tools .fa{
+    font-size:3em;
+  }
+  .content-header {
+    position: fixed;
+    top: 0;
+    background: white;
+    width: 100%;
   }
 
   #wrapper.active #sidebar-wrapper {

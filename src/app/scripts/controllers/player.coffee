@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $log, $rootScope, $window) ->
+  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $rootScope, $window) ->
     # Track tracking
     timer = false
     updateScrubState = (pos) ->
@@ -56,10 +56,8 @@ angular.module('newSrcApp')
     getButtonStates = ->
       Mopidy.getRandom (random)->
         $scope.random = random
-        $log.info random
       Mopidy.getRepeat (repeat)->
         $scope.repeat = repeat
-        $log.info repeat
 
     # Event handlers
     Mopidy.on "event:optionsChanged", getButtonStates
@@ -106,7 +104,5 @@ angular.module('newSrcApp')
       $rootScope.ui_state = !$rootScope.ui_state
 
     $scope.seek = (event) ->
-      $log.info event
       newpos = (event.offsetX / event.currentTarget.clientWidth) * $scope.track_length
-      $log.info newpos
       Mopidy.native.playback.seek newpos

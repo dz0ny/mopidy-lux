@@ -39,6 +39,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
+            build: require('execSync').exec("git describe --tags").stdout.trim("\n")
           }
         }
       },
@@ -49,6 +50,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
+            build: require('execSync').exec("git describe --tags").stdout.trim("\n")
           }
         }
       }
