@@ -10,15 +10,6 @@ table .btn:hover {
   padding: 0;
   border: none;
 }
-@media (max-width:767px) {
-  table .active .play {
-    display:none!important;
-  }
-  table .active .pause {
-    display:block!important;
-  }
-
-  table .pause {
-    display:none!important;
-  }
-}
+ table td h5{
+   margin-top:0;
+ }

@@ -13,6 +13,9 @@ angular
       .when '/',
         templateUrl: 'views/playlist.html'
         controller: 'PlaylistCtrl'
+      .when '/browse/',
+        templateUrl: 'views/browse.html'
+        controller: 'BrowseCtrl'
       .otherwise
         redirectTo: '/'
 

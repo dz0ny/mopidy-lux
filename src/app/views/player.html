@@ -2,6 +2,9 @@
 	<div id="art-area">
 		<div id="cover-art">
             <img class="img-responsive" ng-show="cover" ng-src="{{cover}}">
+						<div id="user">
+
+						</div>
         </div>
 	</div>
 
@@ -32,6 +35,9 @@
 
 		<div id="controls">
 			<div class="btn-group">
+				<button ng-click="toggle_love()" type="button" class="btn btn-default btn-lg">
+					<i ng-class="{'fa-heart-o':loved,'fa-heart':!loved}" class="fa"></i>
+				</button>
 				<button ng-class="{ active: random }" ng-click="toggle_random()" type="button" class="btn btn-default btn-lg"><span class="fa fa-random"></span></button>
 				<button ng-class="{ active: repeat }" ng-click="toggle_repeat()" type="button" class="btn btn-default btn-lg"><span class="fa fa-retweet"></span></button>
 				<button type="button" class="btn btn-default btn-lg"><span class="fa fa-volume-up"></span></button>

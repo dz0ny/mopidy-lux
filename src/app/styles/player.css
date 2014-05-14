@@ -16,10 +16,11 @@
   vertical-align: middle;
 }
 
-#cover-art img{
+#cover-art img {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
   margin: 0 auto;
 }
+
 #cover-art span {
   font-size: 20em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
@@ -148,20 +149,32 @@
   opacity: 1;
 }
 
-#controls .btn {
+#cover-art #user {
+  position: relative;
+  float: right;
+  margin-top: -4em;
+  margin-right: 1em;
+}
+
+#controls .btn,
+#cover-art #user .btn {
+  font-size: 1.8em;
   background: transparent;
   border: initial;
-  color: white;
+  color: whitesmoke;
 }
 
 #controls .btn:hover,
-#controls .btn.active {
+#cover-art #user .btn:hover,
+#controls .btn.active,
+#cover-art #user .btn.active {
   background: #0e0e0e;
   border: initial;
 }
 
-#controls .btn-lg {
-  padding: 16px 32px;
+#controls .btn-lg,
+#cover-art #user .btn-lg {
+  padding: 12px 24px;
 }
 
 #player #footer {

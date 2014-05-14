@@ -4,6 +4,7 @@ angular.module('newSrcApp')
   .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $rootScope, $window) ->
     # Track tracking
     timer = false
+    $scope.loved = false
     updateScrubState = (pos) ->
       $scope.track_position_time = pos
       $scope.track_position = ($scope.track_position_time / $scope.track_length) * 100
@@ -102,6 +103,9 @@ angular.module('newSrcApp')
 
     $scope.switchmode = ->
       $rootScope.ui_state = !$rootScope.ui_state
+
+    $scope.toggle_love = ->
+      $scope.loved = !$scope.loved
 
     $scope.seek = (event) ->
       newpos = (event.offsetX / event.currentTarget.clientWidth) * $scope.track_length

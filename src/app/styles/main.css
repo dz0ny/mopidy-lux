@@ -1,6 +1,7 @@
-body{
-  overflow-x:hidden;
+body {
+  overflow-x: hidden;
 }
+
 #wrapper {
   padding-left: 90px;
   transition: all 0.4s ease 0s;
@@ -20,6 +21,12 @@ body{
 
 #page-content-wrapper {
   width: 100%;
+}
+
+.fa-heart-o,
+.fa-heart {
+  color: crimson;
+  text-shadow: 0 0 13px crimson;
 }
 
 .navbar-nav {
@@ -52,9 +59,11 @@ body{
   line-height: 65px;
   display: inline-block;
 }
+
 .content-header .tools {
-  padding-right:10px;
+  padding-right: 10px;
 }
+
 #menu-toggle {
   display: none;
 }
@@ -95,11 +104,13 @@ body{
 .btn-xsm {
   padding: 2px 4px;
 }
-#menu-toggle{
+
+#menu-toggle {
   background: transparent;
-  border:none;
+  border: none;
   padding: 0;
 }
+
 @media (max-width:767px) {
   #wrapper {
     padding-left: 0;
@@ -122,9 +133,10 @@ body{
     left: 90px;
   }
 
-  .content-header .tools .fa{
-    font-size:3em;
+  .content-header .tools .fa {
+    font-size: 2em;
   }
+
   .content-header {
     position: fixed;
     top: 0;
