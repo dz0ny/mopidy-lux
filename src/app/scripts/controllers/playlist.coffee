@@ -8,9 +8,11 @@ angular.module('newSrcApp')
     scrollTo = (index)->
       $('table tbody tr').removeClass('active')
       tr = $("table tbody tr:eq(#{index})").addClass('active')
-      $("body").animate
-        scrollTop: tr.offset().top-100
-      , 800
+      console.log tr
+      if tr
+        $("body").animate
+          scrollTop: tr.offset().top-100
+        , 800
 
     $scope.$watch "indexNow", (new_value, old_value)->
       if new_value >= 0

@@ -3,9 +3,10 @@
 angular.module('newSrcApp')
   .filter 'totime', ->
     (input) ->
-      unless input
-        return '0:00'
+      console.log input
       time = (parseInt(input)/1000).toFixed(0)
+      unless time >0
+        return '∞'
       # Minutes and seconds
       mins = ~~(time / 60)
       secs = time % 60

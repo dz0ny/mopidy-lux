@@ -108,5 +108,6 @@ angular.module('newSrcApp')
       $scope.loved = !$scope.loved
 
     $scope.seek = (event) ->
-      newpos = (event.offsetX / event.currentTarget.clientWidth) * $scope.track_length
+      width = event.currentTarget.clientWidth
+      newpos = (event.offsetX / width) * $scope.track_length
       Mopidy.native.playback.seek newpos

@@ -47,7 +47,7 @@ angular.module('newSrcApp')
 
   	window.mopidy = mopidy = new Mopidy({webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false})
 
-  	internalOn "state:online", ->
+  	internalOn "git clone gstate:online", ->
   	  $rootScope.isConnected = true
 
   	internalOn "state:offline", ->

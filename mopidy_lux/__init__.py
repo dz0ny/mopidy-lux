@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from mopidy_lux.router import LuxRouter
 
 import os
 
@@ -21,11 +22,15 @@ class LuxExtension(ext.Extension):
     def get_config_schema(self):
         schema = super(LuxExtension, self).get_config_schema()
         schema['db_file'] = config.Path()
-        schema['echonest_key'] = config.Secret()
+        schema['lastfm_key'] = config.Secret()
         return schema
 
     def setup(self, registry):
-        from .router import LuxRouter
-
-        registry.add("http:routers", LuxRouter)
-
+        registry.add('http:app', {
+            'name': self.ext_name,
+            'factory': LuxRouter,
+        })
+        registry.add('http:static', {
+            'name': self.ext_name,
+            'path': os.path.join(os.path.dirname(__file__), 'static'),
+        })
