@@ -3,7 +3,6 @@
 angular.module('newSrcApp')
   .filter 'totime', ->
     (input) ->
-      console.log input
       time = (parseInt(input)/1000).toFixed(0)
       unless time >0
         return '∞'

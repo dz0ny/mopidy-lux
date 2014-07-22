@@ -60,6 +60,12 @@
   position: relative;
 }
 
+#volume {
+  padding-bottom: 20px;
+  min-height: 39px;
+  position: relative;
+}
+
 #time-marker-text:before,
 #time-marker-text:after {
   content: " ";

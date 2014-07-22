@@ -33,6 +33,20 @@
 			</div>
 		</div>
 
+		<div id="volume" ng-show="volume">
+			<div id="bar-click">
+				<div id="bar-outer" class="navbar-default" ng-mousedown="set_volume($event)">
+					<div id="bar-inner" class="navbar-inverse" style="width: {{volume_level}}%;"></div>
+					<span id="position" style="left: {{volume_level}}%;"></span>
+				</div>
+			</div>
+			<div id="time-marker" style="left: 2px;">
+				<div id="time-marker-text">
+					<span id="track-length">{{volume_level}}%</span>
+				</div>
+			</div>
+		</div>
+
 		<div id="controls">
 			<div class="btn-group">
 				<button ng-click="toggle_love()" type="button" class="btn btn-default btn-lg">
@@ -40,7 +54,7 @@
 				</button>
 				<button ng-class="{ active: random }" ng-click="toggle_random()" type="button" class="btn btn-default btn-lg"><span class="fa fa-random"></span></button>
 				<button ng-class="{ active: repeat }" ng-click="toggle_repeat()" type="button" class="btn btn-default btn-lg"><span class="fa fa-retweet"></span></button>
-				<button type="button" class="btn btn-default btn-lg"><span class="fa fa-volume-up"></span></button>
+				<button ng-class="{ active: volume }" ng-click="toggle_volume()" class="btn btn-default btn-lg"><span class="fa fa-volume-up"></span></button>
 			</div>
 			<div class="btn-group">
 				<button ng-click="prev()" type="button" class="btn btn-default btn-lg"><span class="fa fa-step-backward"></span></button>

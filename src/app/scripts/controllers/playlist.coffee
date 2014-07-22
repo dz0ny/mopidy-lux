@@ -1,32 +1,32 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .controller 'PlaylistCtrl', ($scope, Mopidy, $rootScope, $log) ->
+  .controller 'PlaylistCtrl', ($scope, Mopidy, $rootScope, $timeout) ->
 
     $rootScope.title = "Playlist"
-
+    debouce = false
     scrollTo = (index)->
-      $('table tbody tr').removeClass('active')
-      tr = $("table tbody tr:eq(#{index})").addClass('active')
-      console.log tr
-      if tr
-        $("body").animate
-          scrollTop: tr.offset().top-100
-        , 800
+      $timeout(->
+        $('table tbody tr').removeClass('active')
+        tr = $("table tbody tr:eq(#{index})").addClass('active')
+        if tr.length
+          $("body").animate
+            scrollTop: tr.offset().top-100
+          , 800
+      , 100)
 
-    $scope.$watch "indexNow", (new_value, old_value)->
+
+    $rootScope.$watch "indexNow", (new_value, old_value)->
       if new_value >= 0
         scrollTo(new_value)
 
-    playbackStateChanged = (data)->
-      if data.new_state is 'playing'
-        Mopidy.getCurrentTlTrack (tl_track)->
-          Mopidy.native.tracklist.index(tl_track).then (index) ->
-            $scope.indexNow = index
-
     tracklistChanged = ->
-      Mopidy.getTracklist (data) ->
-        $scope.tracks = data
+      $timeout.cancel debouce
+      debouce = $timeout(->
+          Mopidy.getTracklist (data) ->
+            $scope.tracks = data
+            scrollTo($rootScope.indexNow)
+      , 100)
 
     $scope.pause = (track) ->
       Mopidy.native.playback.pause()
@@ -41,19 +41,9 @@ angular.module('newSrcApp')
     $scope.clear = () ->
       Mopidy.native.tracklist.clear()
 
-    online = ->
-      tracklistChanged()
-      playbackStateChanged({new_state:'playing'})
-
     #handle events
-    Mopidy.on "event:tracklistChanged", tracklistChanged
-    Mopidy.on "event:playbackStateChanged", playbackStateChanged
-    Mopidy.on "state:online", online
+    $scope.$on "mopidy:tracklist_changed", tracklistChanged
+    $scope.$on "mopidy:online", tracklistChanged
     if $rootScope.isConnected
-      online()
+      tracklistChanged()
 
-    # deregister handlers
-    $scope.$on '$destroy', ->
-      Mopidy.off "event:tracklistChanged", tracklistChanged
-      Mopidy.off "event:playbackStateChanged", playbackStateChanged
-      Mopidy.off "state:online", online

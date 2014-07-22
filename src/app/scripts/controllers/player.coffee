@@ -1,10 +1,12 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $rootScope, $window) ->
+  .controller 'PlayerCtrl', ($scope, Mopidy, $timeout, $rootScope, $window, $log) ->
     # Track tracking
     timer = false
     $scope.loved = false
+    $scope.volume_level = 0
+
     updateScrubState = (pos) ->
       $scope.track_position_time = pos
       $scope.track_position = ($scope.track_position_time / $scope.track_length) * 100
@@ -20,6 +22,12 @@ angular.module('newSrcApp')
         $timeout.cancel timer
 
     updateInfo = (data) ->
+
+      if data.tlid?
+        $rootScope.$broadcast "mopidy:track_index", data.tlid
+      if data.track?
+        data = data.track
+
       if data
         $scope.track = data.name
         if data.artists
@@ -61,19 +69,22 @@ angular.module('newSrcApp')
         $scope.repeat = repeat
 
     # Event handlers
-    Mopidy.on "event:optionsChanged", getButtonStates
-    Mopidy.on "event:seeked", (data)->
+    $scope.$on "mopidy:options_changed", getButtonStates
+    $scope.$on "mopidy:seeked", (event, data)->
       $timeout.cancel timer
       updateScrubState data.time_position
-    Mopidy.on "event:playbackStateChanged", (data) ->
+    $scope.$on "mopidy:volume_changed", (event, data)->
+      $scope.volume_level = data.volume
+    $scope.$on "mopidy:playback_state_changed", (event, data) ->
       $timeout.cancel timer
       $scope.state = data.new_state
-      Mopidy.getCurrentTrack updateInfo
       Mopidy.getTimePosition updateScrubState
-    Mopidy.on "state:online", ->
+    $scope.$on "mopidy:track_playback_started", (event, data) ->
+      updateInfo data.tl_track.track
+    $scope.$on "mopidy:online", ->
       Mopidy.getState (state) ->
         $scope.state = state
-        Mopidy.getCurrentTrack updateInfo
+        Mopidy.getCurrentTlTrack updateInfo
         Mopidy.getTimePosition updateScrubState
       getButtonStates()
     $scope.play = ->
@@ -95,11 +106,18 @@ angular.module('newSrcApp')
       $timeout.cancel timer
       Mopidy.native.playback.previous()
 
+    $scope.toggle_volume = ->
+      Mopidy.native.playback.getVolume().then (data)->
+        $scope.$apply ->
+          $log.info data
+          $scope.volume_level = data
+      $scope.volume = !$scope.volume
+
     $scope.toggle_random = ->
-      Mopidy.native.tracklist.setRandom(!$scope.random)
+      Mopidy.native.tracklist.setRandom([!$scope.random])
 
     $scope.toggle_repeat = ->
-      Mopidy.native.tracklist.setRepeat(!$scope.repeat)
+      Mopidy.native.tracklist.setRepeat([!$scope.repeat])
 
     $scope.switchmode = ->
       $rootScope.ui_state = !$rootScope.ui_state
@@ -110,4 +128,9 @@ angular.module('newSrcApp')
     $scope.seek = (event) ->
       width = event.currentTarget.clientWidth
       newpos = (event.offsetX / width) * $scope.track_length
-      Mopidy.native.playback.seek newpos
+      Mopidy.native.playback.seek [newpos]
+
+    $scope.set_volume = (event) ->
+      width = event.currentTarget.clientWidth
+      newpos = (event.offsetX / width) * 100
+      Mopidy.native.playback.setVolume [newpos]

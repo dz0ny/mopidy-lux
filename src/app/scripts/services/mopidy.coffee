@@ -1,117 +1,141 @@
 'use strict'
 
 angular.module('newSrcApp')
-  .factory 'Mopidy', ($rootScope, ENV)->
-  	cached = {
-  	  albums: false
-  	  artists: false
-  	}
-  	# Optimized binding results in 6x performance increase
-  	internalOn = (eventName, fn) ->
-  	  mopidy.on eventName, (data) ->
-  	    $rootScope.$apply ->
-  	      fn data
-  	_buildLibrary = (fn)->
-  	  unless cached.artists and cached.albums
+  .factory 'Mopidy', ($rootScope, ENV, $log)->
+    cached = {
+      albums: false
+      artists: false
+    }
 
-  	    mopidy.library.search().then (results) ->
-  	      albums =  []
-  	      artists =  []
-  	      for backend in results
-  	        t_albums = []
-  	        t_artists = []
-  	        if backend.tracks
-  	          for track in backend.tracks
-  	            unless _.contains t_albums, track.album.name
-  	              t_albums.push track.album.name
-  	              albums.push {
-  	                name: track.album.name
-  	                art: _.first(track.album.images)
-  	                backend: backend.uri
-  	                model: "album"
-  	              }
-  	            unless _.contains t_artists, _.first(track.artists).name
-  	              t_artists.push _.first(track.artists).name
-  	              artists.push {
-  	                name: _.first(track.artists).name
-  	                art: _.first(track.album.images)
-  	                backend: backend.uri
-  	                model: "artist"
-  	              }
-  	      cached.artists = artists
-  	      cached.albums = albums
-  	      $rootScope.$apply ->
-  	        fn albums, artists
-  	  else
-  	    fn cached.albums, cached.artists
+    # Optimized binding results in 6x performance increase
+    internalOn = (eventName, fn) ->
+      mopidy.on eventName, (data) ->
+        $rootScope.$apply ->
+          fn data
 
-  	window.mopidy = mopidy = new Mopidy({webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false})
+    _buildLibrary = (fn)->
+      unless cached.artists and cached.albums
 
-  	internalOn "git clone gstate:online", ->
-  	  $rootScope.isConnected = true
+        mopidy.library.search().then (results) ->
+          albums =  []
+          artists =  []
+          for backend in results
+            t_albums = []
+            t_artists = []
+            if backend.tracks
+              for track in backend.tracks
+                unless _.contains t_albums, track.album.name
+                  t_albums.push track.album.name
+                  albums.push {
+                    name: track.album.name
+                    art: _.first(track.album.images)
+                    backend: backend.uri
+                    model: "album"
+                  }
+                unless _.contains t_artists, _.first(track.artists).name
+                  t_artists.push _.first(track.artists).name
+                  artists.push {
+                    name: _.first(track.artists).name
+                    art: _.first(track.album.images)
+                    backend: backend.uri
+                    model: "artist"
+                  }
+          cached.artists = artists
+          cached.albums = albums
+          $rootScope.$apply ->
+            fn albums, artists
+      else
+        fn cached.albums, cached.artists
 
-  	internalOn "state:offline", ->
-  	  $rootScope.isConnected = false
+    window.mopidy = mopidy = new Mopidy({
+      webSocketUrl:if ENV.name is 'development' then "ws://#{location.hostname}:6680/mopidy/ws" else false,
+      callingConvention: "by-position-or-by-name"
+    })
 
-  	isConnected: ->
-  	  return $rootScope.isConnected
-  	on: internalOn
-  	off: mopidy.off
-  	emit: mopidy.emit
-  	native: mopidy
+    internalOn "websocket:incomingMessage", (message)->
+      try
+        data = JSON.parse(message.data)
+        if data.hasOwnProperty("event")
+          $log.info "mopidy:#{data.event}", data
+          $rootScope.$broadcast "mopidy:#{data.event}", data
+      catch error
+        if error instanceof SyntaxError
+          $log.warn "WebSocket message parsing failed. Message was: " + message.data
+        else
+          throw error
+    
+    internalOn "state:online", ->
+      $rootScope.isConnected = true
+      $rootScope.$broadcast "mopidy:online"
 
-  	getCurrentTrack: (callback) ->
-  	  mopidy.playback.getCurrentTrack().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    internalOn "state:offline", ->
+      $rootScope.isConnected = false
+      $rootScope.$broadcast "mopidy:offline"
+    $rootScope.$on "mopidy:track_index", (event, data) ->
+      $rootScope.indexNow = data
+    $rootScope.$on "mopidy:track_playback_started", (event, data) ->
+      $rootScope.indexNow = data.tl_track.tlid
+      
+    isConnected: ->
+      return $rootScope.isConnected
 
-  	getCurrentTlTrack: (callback) ->
-  	  mopidy.playback.getCurrentTlTrack().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    on: internalOn
+    off: mopidy.off
+    emit: mopidy.emit
+    native: mopidy
 
-  	changeTrack: (track) ->
-  	  mopidy.playback.changeTrack track
+    getCurrentTrack: (callback) ->
+      mopidy.playback.getCurrentTrack().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getTracklistPosition: (tl_track, callback) ->
-  	  mopidy.tracklist.index(tl_track).then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getCurrentTlTrack: (callback) ->
+      mopidy.playback.getCurrentTlTrack().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getTracklist: (callback) ->
-  	  mopidy.tracklist.getTlTracks().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    changeTrack: (track) ->
+      mopidy.playback.changeTrack [track]
 
-  	getState: (callback) ->
-  	  mopidy.playback.getState().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getTracklistPosition: (tl_track, callback) ->
+      mopidy.tracklist.index(tl_track).then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getVolume: (callback) ->
-  	  mopidy.playback.getVolume().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getTracklist: (callback) ->
+      mopidy.tracklist.getTlTracks().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getRandom: (callback) ->
-  	  mopidy.tracklist.getRandom().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getState: (callback) ->
+      mopidy.playback.getState().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getRepeat: (callback) ->
-  	  mopidy.tracklist.getRepeat().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getVolume: (callback) ->
+      mopidy.playback.getVolume().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getTimePosition: (callback) ->
-  	  mopidy.playback.getTimePosition().then (data) ->
-  	    $rootScope.$apply ->
-  	      callback data
+    getRandom: (callback) ->
+      mopidy.tracklist.getRandom().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getAlbums: (callback)->
-  	  _buildLibrary (albums, artists)->
-  	    callback albums
+    getRepeat: (callback) ->
+      mopidy.tracklist.getRepeat().then (data) ->
+        $rootScope.$apply ->
+          callback data
 
-  	getArtists: (callback)->
-  	  _buildLibrary (albums, artists)->
-  	    callback artists
+    getTimePosition: (callback) ->
+      mopidy.playback.getTimePosition().then (data) ->
+        $rootScope.$apply ->
+          callback data
+
+    getAlbums: (callback)->
+      _buildLibrary (albums, artists)->
+        callback albums
+
+    getArtists: (callback)->
+      _buildLibrary (albums, artists)->
+        callback artists
