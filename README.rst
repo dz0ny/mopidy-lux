@@ -53,7 +53,7 @@ Project resources
 Changelog
 =========
 
-v1.0.0 (2014-05-02)
+Unreleased (Unreleased)
 -------------------
 
-- TODO
+- Unreleased
