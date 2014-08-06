@@ -2,18 +2,6 @@
 Mopidy-Lux
 **********
 
-.. image:: https://pypip.in/v/Mopidy-Lux/badge.png
-    :target: https://pypi.python.org/pypi/Mopidy-Lux/
-    :alt: Latest PyPI version
-
-.. image:: https://pypip.in/d/Mopidy-Lux/badge.png
-    :target: https://pypi.python.org/pypi/Mopidy-Lux/
-    :alt: Number of PyPI downloads
-
-.. image:: https://travis-ci.org/dz0ny/mopidy-Lux.png?branch=master
-    :target: https://travis-ci.org/dz0ny/mopidy-Lux
-    :alt: Travis CI build status
-
 `Mopidy <http://www.mopidy.com/>`_ extension with nice web UI.
 
 .. image:: https://cloud.githubusercontent.com/assets/239513/2962749/a57685e8-dad3-11e3-9340-ac16eccc1436.png
@@ -22,16 +10,21 @@ Mopidy-Lux
 
 .. image:: https://cloud.githubusercontent.com/assets/239513/2962751/a59e48ee-dad3-11e3-952e-d2f399e3ad84.png
 
+TODO
+====
+
+ - Library
+ - Discover
+ - Settings 
+
+
 
 Installation
 ============
 
 Install by running::
 
-    pip install Mopidy-Lux
-
-Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
-<http://apt.mopidy.com/>`_.
+    pip install https://github.com/dz0ny/mopidy-lux/archive/master.zip
 
 
 Usage
