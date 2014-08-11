@@ -7,4 +7,4 @@ include README.rst
 include mopidy_lux/ext.conf
 
 recursive-include tests *.py
-recursive-include mopidy_lux/static *.py
+recursive-include mopidy_lux/static *
