@@ -1,6 +1,6 @@
 <div class="content-header">
     <h1>
-        <button class="btn btn-default" id="menu-toggle" ng-click="toggleMenu()" href="#"><i
+        <button class="btn btn-default btn-xsm" id="menu-toggle" ng-click="toggleMenu()" href="#"><i
                 class="fa fa-bars fa-3x"></i></button>
         {{title}}
     </h1>
@@ -25,23 +25,24 @@
 
 
 <div class="table-responsive" ng-show="tracks">
-  <table class="table table-hover">
+  <table class="table table-hover playlist">
       <thead>
         <tr>
-          <th>Song</th>
-          <th class="hidden-xs"><i class="fa fa-clock-o fa-2"></i></th>
+          <th>Title</th>
+          <th><i class="fa fa-clock-o fa-2"></i></th>
+          <th class="hidden-xs">Artist</th>
+          <th class="hidden-xs">Album</th>
         </tr>
       </thead>
       <tbody>
         <tr bindonce ng-repeat="item in tracks track by $index" ng-click="play(item)">
-          <td>
-            <h5 bo-text="item.track.name"></h5>
-            <h5 bo-text="item.track.artists[0].name"></h5>
-            <h5 class="visible-xs" bo-text="item.track.length | totime"></h5>
-          </td>
-          <td class="hidden-xs"><h5 bo-text="item.track.length | totime"></h5></td>
+          <td><span bo-text="item.track.name"></span></td>
+          <td><span bo-text="item.track.length | totime"></span></td>
+          <td class="hidden-xs"><span bo-text="item.track.artists[0].name"></span></td>
+          <td class="hidden-xs"><span bo-text="item.track.album.name"></span></td>
         </tr>
       </tbody>
     </table>
 </div>
+<bootswatch/>
 <h3 ng-hide="tracks" >Empty list!</h3>

@@ -2,6 +2,7 @@
 
 angular
   .module('newSrcApp', [
+    'ngTouch'
     'ngSanitize',
     'ngRoute',
     'mgcrea.ngStrap',

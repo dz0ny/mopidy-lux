@@ -111,6 +111,7 @@
   left: 0;
   right: 0;
   margin-top: -9px;
+  cursor: pointer;
 }
 
 #bar-outer,
@@ -181,6 +182,7 @@
 #controls .btn-lg,
 #cover-art #user .btn-lg {
   padding: 12px 24px;
+  margin: 4px;
 }
 
 #player #footer {

@@ -19,7 +19,7 @@
 		</div>
 
 		<div id="progress">
-			<div id="bar-click">
+			<div id="bar-click" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{track_position}}" tabindex="0">
 				<div id="bar-outer" class="navbar-default" ng-mousedown="seek($event)">
 					<div id="bar-inner" class="navbar-inverse" style="width: {{track_position}}%;"></div>
 					<span id="position" style="left: {{track_position}}%;"></span>
@@ -34,7 +34,7 @@
 		</div>
 
 		<div id="volume" ng-show="volume">
-			<div id="bar-click">
+			<div id="bar-click" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{volume_level}}" tabindex="0">
 				<div id="bar-outer" class="navbar-default" ng-mousedown="set_volume($event)">
 					<div id="bar-inner" class="navbar-inverse" style="width: {{volume_level}}%;"></div>
 					<span id="position" style="left: {{volume_level}}%;"></span>

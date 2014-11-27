@@ -13,3 +13,12 @@ table .btn:hover {
  table td h5{
    margin-top:0;
  }
+
+.playlist td{
+	height: 40px;
+	line-height: 40px;
+	font-weight: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: pointer;
+}
